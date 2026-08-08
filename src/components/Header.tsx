@@ -22,11 +22,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "About", href: "#about" },
     { name: "Experience", href: "#experience" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -64,7 +64,7 @@ export default function Header() {
               href="#contact"
               className="px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full shadow-lg shadow-blue-600/25 transition-all duration-200 hover:scale-105 active:scale-95"
             >
-              Hire Me
+              Contact Me
             </a>
           </nav>
 
