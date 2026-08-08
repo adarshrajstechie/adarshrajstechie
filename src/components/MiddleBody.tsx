@@ -82,7 +82,7 @@ export default function MiddleBody() {
       tech: ["Next.js", "Hostinger", "PHP Mailer"],
       desc: "Testimonial and feedback collection platform configured with custom PHP mail handlers.",
       live: "https://feedback.4bizinternational.com/",
-      github: "https://github.com/adarshrajstechie/adarshrajstechie-adarshrajstechie-4bizinternational_feedback_landing_page_next.js.git"
+      github: "https://github.com/adarshrajstechie/4biz_feedback_landing_page_next.js.git"
     },
     {
       title: "Theyyampattil UAE Furniture Brand",
