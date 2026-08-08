@@ -1,0 +1,856 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  file.svg
+  globe.svg
+  next.svg
+  vercel.svg
+  window.svg
+src/
+  app/
+    favicon.ico
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    FloatingActions.tsx
+    Footer.tsx
+    Header.tsx
+    MiddleBody.tsx
+.gitignore
+AGENTS.md
+CLAUDE.md
+eslint.config.mjs
+next.config.ts
+package.json
+postcss.config.mjs
+README.md
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/components/FloatingActions.tsx">
+// src/components/FloatingActions.tsx
+import { Phone, MessageCircle } from "lucide-react";
+
+export default function FloatingActions() {
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/918075551892"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="relative group p-4 bg-emerald-500 text-white rounded-full shadow-2xl hover:bg-emerald-400 transition-all hover:scale-110 flex items-center justify-center"
+      >
+        <span className="absolute -inset-1 rounded-full bg-emerald-500 animate-ping opacity-75 group-hover:opacity-100" />
+        <MessageCircle className="w-6 h-6 relative z-10" />
+      </a>
+
+      {/* Call Button */}
+      <a
+        href="tel:+918075551892"
+        aria-label="Call Adarsh Raj"
+        className="relative group p-4 bg-blue-600 text-white rounded-full shadow-2xl hover:bg-blue-500 transition-all hover:scale-110 flex items-center justify-center"
+      >
+        <span className="absolute -inset-1 rounded-full bg-blue-600 animate-ping opacity-75 group-hover:opacity-100" />
+        <Phone className="w-6 h-6 relative z-10" />
+      </a>
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/Footer.tsx">
+// src/components/Footer.tsx
+export default function Footer() {
+  return (
+    <footer className="border-t border-slate-800 bg-slate-950 py-8 text-center text-slate-500 text-sm">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p>© {new Date().getFullYear()} Adarsh Raj S. All rights reserved.</p>
+        <p className="text-xs text-slate-600">
+          Built with Next.js, Tailwind CSS & Hosted on Vercel
+        </p>
+      </div>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/components/Header.tsx">
+// src/components/Header.tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import { Menu, X, Code2 } from "lucide-react";
+
+export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "About", href: "#about" },
+    { name: "Experience", href: "#experience" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "glass-nav py-3 shadow-2xl"
+          : "bg-transparent py-5"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <a href="#" className="flex items-center gap-2 group">
+          <div className="p-2 bg-blue-600/20 border border-blue-500/30 rounded-xl group-hover:scale-105 transition-transform">
+            <Code2 className="w-6 h-6 text-blue-400" />
+          </div>
+          <span className="text-xl font-bold bg-gradient-to-r from-white via-slate-200 to-blue-400 bg-clip-text text-transparent">
+            ADARSH RAJ S
+          </span>
+        </a>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-slate-300 hover:text-blue-400 transition-colors"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="px-5 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full shadow-lg shadow-blue-600/25 transition-all hover:scale-105 active:scale-95"
+          >
+            Hire Me
+          </a>
+        </nav>
+
+        {/* Mobile Toggle Button */}
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-white focus:outline-none"
+          aria-label="Toggle Navigation Menu"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Drawer */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden glass-nav border-b border-slate-800 px-4 pt-4 pb-6 mt-3 space-y-3 animate-fadeIn">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800/50 rounded-lg transition-all"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block text-center w-full py-3 mt-2 font-semibold text-white bg-blue-600 rounded-xl shadow-lg"
+          >
+            Hire Me
+          </a>
+        </div>
+      )}
+    </header>
+  );
+}
+</file>
+
+<file path="src/components/MiddleBody.tsx">
+// src/components/MiddleBody.tsx
+import { 
+  Briefcase, 
+  GraduationCap, 
+  Code, 
+  Bot, 
+  Globe, 
+  Smartphone, 
+  Database, 
+  TrendingUp, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  ExternalLink,
+  Zap
+} from "lucide-react";
+
+// Custom SVG for GitHub Icon
+const GithubIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+  </svg>
+);
+
+// Custom SVG for LinkedIn Icon
+const LinkedinIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+  </svg>
+);
+
+export default function MiddleBody() {
+  const experiences = [
+    {
+      role: "Web Developer",
+      company: "4Biz International LLC",
+      period: "January 2026 - Present",
+      desc: "Developed, maintained, and optimized high-performance websites for a diverse portfolio of clients across the UAE and India using WordPress, PHP, React, Next.js, and Node.js. Optimized GTmetrix performance and applied advanced technical SEO."
+    },
+    {
+      role: "Web Developer Cum Digital Marketer & SMM",
+      company: "Zag Signs",
+      period: "September 2025 - Present",
+      desc: "Managed WordPress e-commerce and Malayalam news platforms (Zag News). Developed custom PHP platforms with video/voice calling and integrated online payments. Ran Meta/Google Ads and optimized YouTube/Instagram monetization."
+    },
+    {
+      role: "Web Developer Cum Digital Marketer",
+      company: "Deityom Digital Marketing Agency",
+      period: "October 2024 - September 2025",
+      desc: "Built websites on Shopify, WordPress, Django, and PHP. Executed end-to-end performance marketing campaigns, Search Console web analysis, and full-stack SEO strategies."
+    },
+    {
+      role: "Python Developer Intern",
+      company: "Futura Labs Calicut",
+      period: "Jan 2024 - April 2024",
+      desc: "Focused on Python, Django, REST APIs, HTML, CSS, JavaScript, and real-time backend integrations."
+    },
+    {
+      role: "Python Developer Intern",
+      company: "Inmakes Infotech Pvt. Ltd.",
+      period: "Dec 2022 - March 2023",
+      desc: "Python full-stack engineering utilizing Django and Flask frameworks along with web frontends."
+    }
+  ];
+
+  const projects = [
+    {
+      title: "Dubai IT Company Corporate Website",
+      tech: ["React", "Next.js", "Node.js", "Gemini AI API"],
+      desc: "Features automated form submissions, mail delivery auto-responses, and an interactive Gemini AI Chatbot for client support.",
+      live: "https://www.4bizinternational.com/",
+      github: "https://github.com/adarshrajstechie/4bizinternational_company_website_next.js.git"
+    },
+    {
+      title: "Emarald Ace Corporate MEP Platform",
+      tech: ["Next.js", "React", "Tailwind CSS"],
+      desc: "High-performance enterprise web app for UAE-based MEP and facility management, showcasing HVAC, AMC, and civil engineering modules.",
+      live: "https://emaraldace-company-website-next-js.vercel.app/",
+      github: "https://github.com/adarshrajstechie/emaraldace_company_website_next.js.git"
+    },
+    {
+      title: "Client Feedback Landing Page",
+      tech: ["Next.js", "Hostinger", "PHP Mailer"],
+      desc: "Testimonial and feedback collection platform configured with custom PHP mail handlers.",
+      live: "https://feedback.4bizinternational.com/",
+      github: "https://github.com/adarshrajstechie/adarshrajstechie-adarshrajstechie-4bizinternational_feedback_landing_page_next.js.git"
+    },
+    {
+      title: "Theyyampattil UAE Furniture Brand",
+      tech: ["PHP", "HTML5", "CSS3", "JavaScript"],
+      desc: "Custom interior solutions platform with optimized GTmetrix score and technical SEO.",
+      live: "https://theyyampattilgcc.com/",
+      github: "https://github.com/adarshrajstechie/theyyampattil_gcc_php-html-website.git"
+    }
+  ];
+
+  const categories = [
+    { name: "Web Technologies", icon: Code, items: ["Next.js", "React", "Node.js", "PHP", "WordPress", "Shopify", "HTML/CSS", "JavaScript"] },
+    { name: "Mobile App Tech", icon: Smartphone, items: ["Flutter", "Dart", "Progressive Web Apps (PWA)"] },
+    { name: "AI Tools & Vibe Coding", icon: Bot, items: ["Gemini AI", "ChatGPT", "GitHub Copilot", "Claude", "Google AI Studio", "DeepSeek", "Canva AI"] },
+    { name: "Databases & Cloud", icon: Database, items: ["MySQL", "PostgreSQL", "Supabase", "Vercel", "Hostinger", "Render", "GitHub"] },
+    { name: "SEO & Digital Growth", icon: TrendingUp, items: ["Technical SEO", "GTmetrix Optimization", "Google Search Console", "Google Analytics", "Meta & Google Ads"] },
+  ];
+
+  return (
+    <main className="pt-24 pb-16">
+      {/* Hero Section */}
+      <section className="min-h-[85vh] flex items-center justify-center relative px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 -z-10 flex items-center justify-center">
+          <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none" />
+          <div className="w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] bg-indigo-600/15 rounded-full blur-[100px] pointer-events-none" />
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-blue-400 text-xs sm:text-sm font-medium">
+            <Zap className="w-4 h-4 text-blue-400" /> Web Developer & AI Vibe Coder
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+            Building High-Performance Digital <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">Experiences</span>
+          </h1>
+
+          <p className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Dynamic Web Developer specializing in Next.js, React, PHP, and AI workflows. Expert in GTmetrix speed optimization, Technical SEO, and full-cycle hosting deployment across UAE & India.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a
+              href="#projects"
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-xl shadow-blue-600/30 transition-all hover:scale-105"
+            >
+              Explore Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-4 glass-card hover:bg-slate-800 text-white font-semibold rounded-xl transition-all"
+            >
+              Get In Touch
+            </a>
+          </div>
+
+          <div className="flex items-center justify-center gap-6 pt-6">
+            <a href="https://github.com/adarshrajstechie" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
+              <GithubIcon className="w-6 h-6" />
+            </a>
+            <a href="https://www.linkedin.com/in/adarshrajstechie" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+              <LinkedinIcon className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white flex items-center justify-center gap-3">
+            <Briefcase className="text-blue-500" /> Work Experience
+          </h2>
+          <p className="text-slate-400">Proven history in engineering, performance tuning, and digital marketing.</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="glass-card p-6 rounded-2xl flex flex-col justify-between transition-all">
+              <div>
+                <span className="text-xs font-semibold text-blue-400 uppercase tracking-wider">{exp.period}</span>
+                <h3 className="text-xl font-bold text-white mt-2">{exp.role}</h3>
+                <p className="text-slate-300 font-medium text-sm">{exp.company}</p>
+                <p className="text-slate-400 text-sm mt-4 leading-relaxed">{exp.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white flex items-center justify-center gap-3">
+            <Code className="text-blue-500" /> Technical Skills & Tools
+          </h2>
+          <p className="text-slate-400">Stack, databases, and AI tools I leverage to accelerate development.</p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {categories.map((cat, idx) => {
+            const Icon = cat.icon;
+            return (
+              <div key={idx} className="glass-card p-6 rounded-2xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-white">{cat.name}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.items.map((item, i) => (
+                    <span key={i} className="px-3 py-1 bg-slate-800/80 text-slate-300 text-xs rounded-lg border border-slate-700">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section id="projects" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-4 mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white flex items-center justify-center gap-3">
+            <Globe className="text-blue-500" /> Featured Projects
+          </h2>
+          <p className="text-slate-400">High-speed Next.js and PHP web applications deployed live.</p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.map((proj, idx) => (
+            <div key={idx} className="glass-card p-8 rounded-2xl flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-bold text-white">{proj.title}</h3>
+                <div className="flex flex-wrap gap-2 my-4">
+                  {proj.tech.map((t, i) => (
+                    <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-medium">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">{proj.desc}</p>
+              </div>
+
+              <div className="flex items-center gap-4 pt-4 border-t border-slate-800">
+                <a
+                  href={proj.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" /> Live Demo
+                </a>
+                <a
+                  href={proj.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors"
+                >
+                  <GithubIcon className="w-4 h-4" /> Code Repository
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Education */}
+      <section id="about" className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="glass-card p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="p-4 bg-blue-600/20 text-blue-400 rounded-2xl">
+              <GraduationCap className="w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white">B.TECH in Mechanical Engineering</h3>
+              <p className="text-slate-400 text-sm">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <span className="px-4 py-2 bg-slate-800 text-slate-300 text-sm rounded-xl font-medium border border-slate-700">
+              Kozhikode, Kerala, India
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white">Let&apos;s Work Together</h2>
+        <p className="text-slate-300 max-w-xl mx-auto">
+          Need a fast Next.js platform, custom web solutions, or GTmetrix performance tuning? Drop me a message.
+        </p>
+
+        <div className="grid gap-6 sm:grid-cols-3 pt-6">
+          <a href="mailto:adarshrajstechie@gmail.com" className="glass-card p-6 rounded-2xl flex flex-col items-center gap-3 hover:scale-105 transition-all">
+            <Mail className="w-6 h-6 text-blue-400" />
+            <span className="text-xs text-slate-400">Email</span>
+            <span className="text-sm font-medium text-white truncate max-w-full">adarshrajstechie@gmail.com</span>
+          </a>
+
+          <a href="tel:+918075551892" className="glass-card p-6 rounded-2xl flex flex-col items-center gap-3 hover:scale-105 transition-all">
+            <Phone className="w-6 h-6 text-emerald-400" />
+            <span className="text-xs text-slate-400">Call / WhatsApp</span>
+            <span className="text-sm font-medium text-white">+91 8075551892</span>
+          </a>
+
+          <div className="glass-card p-6 rounded-2xl flex flex-col items-center gap-3">
+            <MapPin className="w-6 h-6 text-indigo-400" />
+            <span className="text-xs text-slate-400">Location</span>
+            <span className="text-sm font-medium text-white">Kozhikode, Kerala</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="src/app/globals.css">
+@import "tailwindcss";
+</file>
+
+<file path="src/app/layout.tsx">
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Create Next App",
+  description: "Generated by create next app",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+// src/app/page.tsx
+import Header from "@/components/Header";
+import MiddleBody from "@/components/MiddleBody";
+import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
+import Metadata from "next";
+
+export const metadata = {
+  title: "Adarsh Raj S | Web Developer & Performance Specialist",
+  description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, GTmetrix performance tuning, and AI vibe coding workflows.",
+  keywords: ["Adarsh Raj S", "Web Developer Kozhikode", "Next.js Developer UAE", "GTmetrix SEO Expert", "React Developer Kerala"],
+  openGraph: {
+    title: "Adarsh Raj S | Web Developer",
+    description: "Building high-performance, GTmetrix A-grade websites using Next.js, React, and AI integrations.",
+    url: "https://adarshrajstechie.vercel.app/",
+    type: "website",
+  },
+};
+
+export default function Home() {
+  // AI-Level Schema Markup (JSON-LD) for Search Engine Crawlers
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Adarsh Raj S",
+    jobTitle: "Web Developer",
+    url: "https://adarshrajstechie.vercel.app/",
+    sameAs: [
+      "https://github.com/adarshrajstechie",
+      "https://www.linkedin.com/in/adarshrajstechie"
+    ],
+    knowsAbout: ["Next.js", "React", "Node.js", "PHP", "WordPress", "SEO", "GTmetrix", "AI Tools"],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kozhikode",
+      addressRegion: "Kerala",
+      addressCountry: "India"
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+      <Header />
+      <MiddleBody />
+      <FloatingActions />
+      <Footer />
+    </>
+  );
+}
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path="AGENTS.md">
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
+</file>
+
+<file path="CLAUDE.md">
+@AGENTS.md
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+</file>
+
+<file path="package.json">
+{
+  "name": "my-next-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "framer-motion": "^13.0.0",
+    "lucide-react": "^1.30.0",
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+</files>
