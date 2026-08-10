@@ -10,8 +10,7 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  ExternalLink,
-  Zap
+  ExternalLink
 } from "lucide-react";
 
 // Custom SVG for GitHub Icon
@@ -102,53 +101,7 @@ export default function MiddleBody() {
   ];
 
   return (
-    <main className="pt-24 pb-16 bg-slate-950 text-slate-100">
-      {/* Hero Section */}
-      <section className="min-h-[85vh] flex items-center justify-center relative px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none">
-          <div className="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-blue-600/20 rounded-full blur-[120px]" />
-          <div className="w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] bg-indigo-600/15 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-slate-800 backdrop-blur-md text-blue-400 text-xs sm:text-sm font-medium shadow-inner">
-            <Zap className="w-4 h-4 text-blue-400" /> Web Developer & AI Vibe Coder
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-            Building High-Performance Digital <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">Experiences</span>
-          </h1>
-
-          <p className="text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-            Dynamic Web Developer specializing in Next.js, React, PHP, and AI workflows. Expert in GTmetrix speed optimization, Technical SEO, and full-cycle hosting deployment across UAE & India.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a
-              href="#projects"
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl shadow-xl shadow-blue-600/30 transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              Explore Projects
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 bg-slate-900/90 border border-slate-800 hover:bg-slate-800 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              Get In Touch
-            </a>
-          </div>
-
-          <div className="flex items-center justify-center gap-6 pt-6">
-            <a href="https://github.com/adarshrajstechie" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors duration-200" aria-label="GitHub">
-              <GithubIcon className="w-6 h-6" />
-            </a>
-            <a href="https://www.linkedin.com/in/adarshrajstechie" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors duration-200" aria-label="LinkedIn">
-              <LinkedinIcon className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
-      </section>
-
+    <main className="pb-16 bg-slate-950 text-slate-100 overflow-x-hidden">
       {/* Work Experience Section */}
       <section id="experience" className="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">

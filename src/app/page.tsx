@@ -1,5 +1,5 @@
-// src/app/page.tsx
 import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
 import MiddleBody from "@/components/MiddleBody";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
@@ -147,6 +147,7 @@ export default function Home() {
       />
 
       <Header />
+      <HeroSection />
       <MiddleBody />
       <FloatingActions />
       <Footer />
