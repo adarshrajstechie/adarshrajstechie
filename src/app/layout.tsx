@@ -5,16 +5,18 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap", // Prevents FOIT & improves Core Web Vitals
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Adarsh Raj S | Web Developer & Performance Specialist",
-  description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, GTmetrix performance tuning, and AI vibe coding workflows.",
+  description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, and GTmetrix performance tuning.",
 };
 
 export default function RootLayout({
