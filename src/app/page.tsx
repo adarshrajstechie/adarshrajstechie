@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import MiddleBody from "@/components/MiddleBody";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
+import Background from "@/components/Background-portion";
 import type { Metadata } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "/";
@@ -54,7 +55,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  // AI-Level Schema Markup (JSON-LD) for Person & Freelance Professional Service
   const personSchemaData = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -136,7 +136,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Search Engine & AI Crawler Rich Snippets */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchemaData) }}
@@ -146,11 +145,17 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchemaData) }}
       />
 
-      <Header />
-      <HeroSection />
-      <MiddleBody />
-      <FloatingActions />
-      <Footer />
+      {/* Fixed canvas sitting behind content */}
+      <Background />
+
+      {/* Foreground elements with relative positioning and higher z-index */}
+      <div className="relative z-10 w-full min-h-screen">
+        <Header />
+        <HeroSection />
+        <MiddleBody />
+        <FloatingActions />
+        <Footer />
+      </div>
     </>
   );
 }
