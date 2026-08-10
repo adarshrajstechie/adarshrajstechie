@@ -7,6 +7,17 @@ const nextConfig: NextConfig = {
   reactStrictMode: true, // Enforces modern React patterns & eliminates rendering bugs
   poweredByHeader: false, // Security hardening: removes X-Powered-By header
 
+  // --- EXPERIMENTAL & BUNDLE PERFORMANCE OPTIMIZATION ---
+  // Fixes icon bundle bloat & optimizes tree-shaking for Lucide & UI components
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+
+  // Compiler-level minification & production performance enhancements
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
   // --- IMAGES & PERFORMANCE OPTIMIZATION ---
   images: {
     unoptimized: false, // Keeps automatic resizing and WebP/AVIF generation active on Vercel
@@ -67,6 +78,9 @@ const nextConfig: NextConfig = {
 
   turbopack: {
     root: path.resolve(__dirname),
+    resolveAlias: {
+      '@': path.resolve(__dirname),
+    },
   },
 };
 

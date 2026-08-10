@@ -16,7 +16,7 @@ import {
   Sparkles
 } from "lucide-react";
 
-// Custom SVG for GitHub Icon
+// Custom SVG for GitHub Icon with standard w-5 h-5 sizing
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
@@ -96,7 +96,7 @@ export default function MiddleBody() {
     { name: "SEO & Digital Growth", icon: TrendingUp, items: ["Technical SEO", "GTmetrix Optimization", "Google Search Console", "Google Analytics", "Meta & Google Ads"] },
   ];
 
-  // Schema Markup for Search Engine & AI Crawler Level SEO
+  // Search Engine & AI Crawler Level Structured Data (Expanded with Schema.org standards)
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -132,25 +132,25 @@ export default function MiddleBody() {
   };
 
   return (
-    <main className="w-full bg-transparent text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white">
-      {/* Search Engine & AI Level Structured Data */}
+    <main className="w-full bg-transparent text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white scroll-smooth">
+      {/* Search Engine, LLM & AI Level Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
       {/* 1. ABOUT SECTION */}
-      <section id="about" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="about" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-bold tracking-wide uppercase backdrop-blur-xl shadow-lg">
                 <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> About Me & Qualifications
               </div>
               
-              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                 Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm">Digital Engineer</span>
               </h1>
               
@@ -178,7 +178,7 @@ export default function MiddleBody() {
 
             {/* Right Profile Image */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-sm sm:max-w-md">
+              <div className="relative group w-full max-w-xs sm:max-w-sm md:max-w-md">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/30 to-cyan-500/50 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-500 transform-gpu"></div>
                 <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/20 bg-slate-950/20 backdrop-blur-sm shadow-2xl">
                   <Image
@@ -186,7 +186,7 @@ export default function MiddleBody() {
                     alt="Adarsh Raj S - Web Developer Profile Image"
                     fill
                     priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
@@ -199,10 +199,10 @@ export default function MiddleBody() {
       </section>
 
       {/* 2. EXPERIENCE SECTION */}
-      <section id="experience" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="experience" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Briefcase className="w-3.5 h-3.5" /> Professional History
             </div>
@@ -232,13 +232,13 @@ export default function MiddleBody() {
                   </div>
 
                   {/* Glass Card Box */}
-                  <div className="relative overflow-hidden w-full bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl hover:shadow-blue-950/30 transform-gpu">
+                  <div className="relative overflow-hidden w-full bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-8 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl hover:shadow-blue-950/30 transform-gpu">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                      <h3 className="text-lg sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
                         {exp.role}
                       </h3>
                       
-                      <div className="flex flex-wrap items-center gap-2.5">
+                      <div className="flex flex-wrap items-center gap-2">
                         <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1.5 rounded-lg backdrop-blur-md">
                           <Calendar className="w-3.5 h-3.5 text-blue-400" /> {exp.period}
                         </span>
@@ -262,10 +262,10 @@ export default function MiddleBody() {
       </section>
 
       {/* 3. TECHNICAL SKILLS & ECOSYSTEM */}
-      <section id="skills" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="skills" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Code className="w-3.5 h-3.5" /> Capabilities
             </div>
@@ -284,7 +284,7 @@ export default function MiddleBody() {
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-950/30 border border-white/10 rounded-2xl p-6 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 hover:-translate-y-1 transform-gpu shadow-2xl ${spanClass}`}
+                  className={`bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 hover:-translate-y-1 transform-gpu shadow-2xl ${spanClass}`}
                 >
                   <div className="flex items-center gap-3.5 mb-4">
                     <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
@@ -308,10 +308,10 @@ export default function MiddleBody() {
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
-      <section id="projects" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="projects" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Globe className="w-3.5 h-3.5" /> Portfolio
             </div>
@@ -325,9 +325,9 @@ export default function MiddleBody() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl group transform-gpu">
+              <article key={idx} className="bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl group transform-gpu">
                 <div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
                     {proj.title}
                   </h3>
                   
@@ -349,7 +349,8 @@ export default function MiddleBody() {
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors drop-shadow-sm"
+                    aria-label={`Visit live site for ${proj.title}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md"
                   >
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
@@ -357,7 +358,8 @@ export default function MiddleBody() {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors drop-shadow-sm"
+                    aria-label={`View source code on GitHub for ${proj.title}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md"
                   >
                     <GithubIcon className="w-4 h-4" /> Source Code
                   </a>
@@ -370,7 +372,7 @@ export default function MiddleBody() {
       </section>
 
       {/* 5. CONTACT SECTION */}
-      <section id="contact" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="contact" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           
           <div className="max-w-2xl mx-auto space-y-3">
@@ -385,7 +387,8 @@ export default function MiddleBody() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
+              aria-label="Send an email to Adarsh Raj S"
+              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <div className="p-3 bg-blue-500/20 rounded-xl text-blue-300 border border-blue-400/30 shadow-inner">
                 <Mail className="w-6 h-6" />
@@ -396,7 +399,8 @@ export default function MiddleBody() {
 
             <a 
               href="tel:+918075551892" 
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
+              aria-label="Call or WhatsApp Adarsh Raj S"
+              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu focus:outline-none focus:ring-2 focus:ring-emerald-400"
             >
               <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-400/30 shadow-inner">
                 <Phone className="w-6 h-6" />
