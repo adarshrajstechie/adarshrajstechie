@@ -11,22 +11,18 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
 
-  // Refresh home page logic
   const handleHomeClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setActiveSection("Home");
     setIsMobileMenuOpen(false);
     
-    // Hard refresh/navigate to root home page
     if (window.location.pathname === "/") {
-      window.location.href = "/";
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       router.push("/");
-      router.refresh();
     }
   };
 
-  // Passive, high-performance scroll listener
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -43,20 +39,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Keyboard accessibility & lock body scroll safely without jump
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === "Escape") setIsMobileMenuOpen(false);
   }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
-    } else {
-      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isMobileMenuOpen, handleKeyDown]);
@@ -71,7 +62,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Schema.org SEO for AI & Search Engines */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -84,35 +74,28 @@ export default function Header() {
         }}
       />
 
-      {/* Ultra-Modern Glassmorphic Header */}
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out transform-gpu ${
           isScrolled
-            ? "bg-slate-950/80 backdrop-blur-xl border-b border-slate-800/80 py-3 shadow-2xl shadow-blue-950/20"
+            ? "bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 py-3 shadow-2xl shadow-blue-950/20"
             : "bg-transparent border-b border-transparent py-5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          
-          {/* Brand Logo - Reloads Home Page */}
           <Link
             href="/"
             onClick={handleHomeClick}
             className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-xl"
-            aria-label="ADARSH RAJ S - Refresh Home Page"
+            aria-label="ADARSH RAJ S - Home Page"
           >
             <div className="relative p-2.5 bg-gradient-to-br from-blue-600/20 to-indigo-600/10 border border-blue-500/30 rounded-xl group-hover:scale-105 group-hover:border-blue-400/60 transition-all duration-300 shadow-lg shadow-blue-500/10">
               <Code2 className="w-5 h-5 text-blue-400 group-hover:rotate-6 transition-transform duration-300" />
-              <div className="absolute inset-0 rounded-xl bg-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold bg-gradient-to-r from-white via-slate-100 to-blue-400 bg-clip-text text-transparent tracking-tight">
-                ADARSH RAJ S
-              </span>
-            </div>
+            <span className="text-lg font-bold bg-gradient-to-r from-white via-slate-100 to-blue-400 bg-clip-text text-transparent tracking-tight">
+              ADARSH RAJ S
+            </span>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav
             aria-label="Main Navigation"
             className="hidden md:flex items-center gap-1 lg:gap-2 px-4 py-1.5 bg-slate-900/40 border border-slate-800/60 rounded-full backdrop-blur-md shadow-inner"
@@ -138,7 +121,7 @@ export default function Header() {
                   }`}
                 >
                   {isActive && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-indigo-600/30 border border-blue-500/30 rounded-full -z-10 animate-fade-in" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-indigo-600/30 border border-blue-500/30 rounded-full -z-10" />
                   )}
                   {link.name}
                 </Link>
@@ -146,7 +129,6 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Contact Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="#contact"
@@ -159,7 +141,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile/Tablet Toggle Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2.5 rounded-xl bg-slate-900/80 text-slate-200 hover:text-white border border-slate-800/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 transition-all active:scale-95"
@@ -171,32 +152,25 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Backdrop */}
       <div
         className={`fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md md:hidden transition-opacity duration-300 ease-in-out ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMobileMenuOpen(false)}
         aria-hidden="true"
       />
 
-      {/* Mobile & Tablet Navigation Drawer */}
+      {/* Slide Drawer */}
       <aside
         aria-label="Mobile Navigation Drawer"
-        className={`fixed top-0 left-0 bottom-0 z-50 w-[280px] sm:w-[320px] bg-slate-950/95 backdrop-blur-2xl border-r border-slate-800/80 p-6 flex flex-col justify-between md:hidden transform-gpu will-change-transform transition-transform duration-300 ease-out shadow-2xl shadow-blue-950/50 ${
+        className={`fixed top-0 left-0 bottom-0 z-50 w-[280px] sm:w-[320px] bg-slate-950/95 backdrop-blur-2xl border-r border-slate-800/80 p-6 flex flex-col justify-between md:hidden transform-gpu transition-transform duration-300 ease-out shadow-2xl shadow-blue-950/50 ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div>
-          {/* Drawer Header */}
           <div className="flex items-center justify-between pb-6 border-b border-slate-800/80">
-            <Link
-              href="/"
-              onClick={handleHomeClick}
-              className="flex items-center gap-2.5"
-            >
+            <Link href="/" onClick={handleHomeClick} className="flex items-center gap-2.5">
               <div className="p-2 bg-blue-600/20 border border-blue-500/30 rounded-xl">
                 <Code2 className="w-5 h-5 text-blue-400" />
               </div>
@@ -213,7 +187,6 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Drawer Links */}
           <nav className="flex flex-col gap-1.5 pt-6" aria-label="Mobile Navigation Links">
             {navLinks.map((link) => (
               <Link
@@ -239,7 +212,6 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Drawer Bottom CTA */}
         <div className="pt-6 border-t border-slate-800/80 space-y-3">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 px-1">
             <Sparkles className="w-3.5 h-3.5 text-blue-400" />

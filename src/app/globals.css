@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Base hardware rendering and smooth scrolling configuration */
+/* Hardware acceleration & smooth scrolling configuration */
 html {
   scroll-behavior: smooth;
   background-color: #020617;
@@ -8,8 +8,38 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent scroll lock and layout shifts across all devices */
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  overscroll-behavior-y: none;
 }
 
 body {
   overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  touch-action: manipulation;
+}
+
+/* Fix sticky header and background video GPU rendering on iOS/Android */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Custom smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }

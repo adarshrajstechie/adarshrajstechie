@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap", // Prevents FOIT & improves Core Web Vitals
+  display: "swap", // Eliminates FOIT / FOUT and improves LCP
 });
 
 const geistMono = Geist_Mono({
@@ -14,8 +14,16 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#020617",
+};
+
 export const metadata: Metadata = {
-  title: "Adarsh Raj S | Web Developer & Performance Specialist",
+  metadataBase: new URL("https://www.4bizinternational.com"),
+  title: "Adarsh Raj S | Web Developer & GTmetrix Performance Specialist",
   description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, and GTmetrix performance tuning.",
 };
 
