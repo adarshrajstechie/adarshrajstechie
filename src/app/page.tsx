@@ -8,12 +8,12 @@ import type { Metadata } from "next";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "/";
 
 export const metadata: Metadata = {
-  title: "Adarsh Raj S | Web Developer",
-  description: "Hire Adarsh Raj S — Freelance Full-Stack Web Developer in Kozhikode & Remote. Specializing in high-converting Next.js, React, PHP, Technical SEO, GTmetrix Grade-A speed tuning, and AI integration.",
+  title: "Adarsh Raj S | Web Developer & Digital Marketer",
+  description: "Hire Adarsh Raj S — Freelance Full-Stack Web Developer & Digital Marketer in Kozhikode & Remote. Specializing in high-converting Next.js, React, PHP, Technical SEO, and AI integration.",
   keywords: [
     "Freelance Web Developer Kozhikode",
     "Hire Next.js Developer Kerala",
-    "GTmetrix Speed Optimization Expert",
+    "Digital Marketer Kozhikode",
     "Freelance React Developer UAE",
     "Adarsh Raj S",
     "Technical SEO Freelancer",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Adarsh Raj S | Freelance Web Developer & GTmetrix Speed Specialist",
-    description: "Get ultra-fast, GTmetrix A-grade custom websites tailored for maximum search engine leads and conversions. Built with Next.js, React, and AI workflows.",
+    title: "Adarsh Raj S | Freelance Web Developer & Digital Marketer",
+    description: "Get ultra-fast, high-converting custom websites tailored for maximum search engine leads and conversions. Built with Next.js, React, and AI workflows.",
     url: "/",
     type: "website",
     siteName: "Adarsh Raj S Portfolio",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adarsh Raj S | Freelance Web Developer & Performance Tuning",
+    title: "Adarsh Raj S | Freelance Web Developer & Digital Marketer",
     description: "Building ultra-fast, high-converting Next.js & React web applications for global clients and businesses.",
     creator: "@adarshrajstechie",
   },
@@ -58,7 +58,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Adarsh Raj S",
-    jobTitle: "Freelance Full-Stack Web Developer",
+    jobTitle: "Freelance Web Developer & Digital Marketer",
     url: "/",
     sameAs: [
       "https://github.com/adarshrajstechie",
@@ -71,7 +71,7 @@ export default function Home() {
       "PHP", 
       "WordPress", 
       "Technical SEO", 
-      "GTmetrix Speed Tuning", 
+      "Digital Marketing", 
       "AI Vibe Coding"
     ],
     address: {
@@ -85,7 +85,7 @@ export default function Home() {
   const businessSchemaData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Adarsh Raj S - Freelance Web Development Services",
+    name: "Adarsh Raj S - Web Development & Digital Marketing Services",
     image: "/og-image.jpg",
     url: "/",
     telephone: "+918075551892",
@@ -124,7 +124,7 @@ export default function Home() {
       },
       {
         "@type": "Service",
-        name: "GTmetrix Grade-A Website Speed Optimization"
+        name: "Digital Marketing & Performance Optimization"
       },
       {
         "@type": "Service",
