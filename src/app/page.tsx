@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "/";
 
 export const metadata: Metadata = {
-  title: "Adarsh Raj S | Freelance Next.js Developer & GTmetrix Performance Specialist",
+  title: "Adarsh Raj S | Web Developer",
   description: "Hire Adarsh Raj S — Freelance Full-Stack Web Developer in Kozhikode & Remote. Specializing in high-converting Next.js, React, PHP, Technical SEO, GTmetrix Grade-A speed tuning, and AI integration.",
   keywords: [
     "Freelance Web Developer Kozhikode",
