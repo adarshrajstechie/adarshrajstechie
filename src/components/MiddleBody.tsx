@@ -145,29 +145,30 @@ export default function MiddleBody() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide uppercase backdrop-blur-md">
-                <Sparkles className="w-4 h-4" /> About Me & Qualifications
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-bold tracking-wide uppercase backdrop-blur-xl shadow-lg">
+                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> About Me & Qualifications
               </div>
               
-              <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">Digital Engineer</span>
+              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm">Digital Engineer</span>
               </h1>
               
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+              <p className="text-slate-100 text-base sm:text-lg leading-relaxed font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                 Specialized in building ultra-fast Next.js web applications, custom PHP backend systems, and technical SEO architectures. I turn ideas into high-converting, GTmetrix Grade-A platforms across India & UAE.
               </p>
 
-              {/* Education Card */}
-              <div className="bg-slate-900/40 border border-slate-800/80 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700/80 transition-all duration-300 transform-gpu">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/30 flex-shrink-0">
+              {/* Education Glass Card */}
+              <div className="relative group overflow-hidden bg-slate-950/30 border border-white/10 hover:border-blue-500/40 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-2xl transition-all duration-300 transform-gpu">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative flex items-start gap-4">
+                  <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
                     <GraduationCap className="w-7 h-7" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-white">B.TECH in Mechanical Engineering</h2>
-                    <p className="text-slate-400 text-sm mt-1">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
-                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-700/60 backdrop-blur-sm">
+                    <h2 className="text-lg font-bold text-white drop-shadow-sm">B.TECH in Mechanical Engineering</h2>
+                    <p className="text-slate-300 text-sm mt-1 drop-shadow-sm">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-blue-200 font-semibold bg-slate-900/60 px-3 py-1 rounded-lg border border-white/10 backdrop-blur-sm">
                       <MapPin className="w-3.5 h-3.5 text-blue-400" /> Kozhikode, Kerala, India
                     </div>
                   </div>
@@ -178,8 +179,8 @@ export default function MiddleBody() {
             {/* Right Profile Image */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group w-full max-w-sm sm:max-w-md">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 transform-gpu"></div>
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900/40 backdrop-blur-sm shadow-2xl">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/30 to-cyan-500/50 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-500 transform-gpu"></div>
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/20 bg-slate-950/20 backdrop-blur-sm shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
                     alt="Adarsh Raj S - Web Developer Profile Image"
@@ -188,7 +189,7 @@ export default function MiddleBody() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -201,14 +202,14 @@ export default function MiddleBody() {
       <section id="experience" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Briefcase className="w-3.5 h-3.5" /> Professional History
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Work Experience Journey
             </h2>
-            <p className="text-slate-400 text-base">
+            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               Hands-on engineering, performance tuning, and digital marketing results.
             </p>
           </div>
@@ -216,7 +217,7 @@ export default function MiddleBody() {
           {/* Timeline Container */}
           <div className="w-full relative pl-6 sm:pl-10">
             {/* Timeline Vertical Line */}
-            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500/50 to-slate-800/40"></div>
+            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-400 via-indigo-400/50 to-transparent"></div>
 
             <div className="space-y-6 sm:space-y-8">
               {experiences.map((exp, idx) => (
@@ -225,29 +226,29 @@ export default function MiddleBody() {
                   {/* Timeline Bullet Marker */}
                   <div className="absolute -left-[19px] sm:-left-[29px] top-6 -translate-y-1/2 flex items-center justify-center z-10">
                     <span className="relative flex h-5 w-5 items-center justify-center">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-30"></span>
-                      <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-blue-500 group-hover:border-cyan-400 group-hover:scale-125 transition-all duration-300"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-40"></span>
+                      <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-blue-400 group-hover:border-cyan-300 group-hover:scale-125 transition-all duration-300"></span>
                     </span>
                   </div>
 
-                  {/* Card Content Box */}
-                  <div className="w-full bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-slate-700/80 hover:bg-slate-900/60 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 transform-gpu">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                  {/* Glass Card Box */}
+                  <div className="relative overflow-hidden w-full bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl hover:shadow-blue-950/30 transform-gpu">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
                         {exp.role}
                       </h3>
                       
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg backdrop-blur-sm">
-                          <Calendar className="w-3.5 h-3.5" /> {exp.period}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1.5 rounded-lg backdrop-blur-md">
+                          <Calendar className="w-3.5 h-3.5 text-blue-400" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/60 border border-slate-700/60 px-3 py-1.5 rounded-lg backdrop-blur-sm">
-                          <Briefcase className="w-3.5 h-3.5 text-slate-400" /> {exp.company}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200 bg-slate-900/60 border border-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md">
+                          <Briefcase className="w-3.5 h-3.5 text-slate-300" /> {exp.company}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-100 text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
                       {exp.desc}
                     </p>
                   </div>
@@ -264,14 +265,14 @@ export default function MiddleBody() {
       <section id="skills" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Code className="w-3.5 h-3.5" /> Capabilities
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Technical Skills & Ecosystem
             </h2>
-            <p className="text-slate-400 text-base">
+            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               Tech stack, database systems, digital growth tools, and AI workflows.
             </p>
           </div>
@@ -283,17 +284,17 @@ export default function MiddleBody() {
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-md hover:border-slate-700/80 transition-all duration-300 hover:-translate-y-1 transform-gpu ${spanClass}`}
+                  className={`bg-slate-950/30 border border-white/10 rounded-2xl p-6 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 hover:-translate-y-1 transform-gpu shadow-2xl ${spanClass}`}
                 >
                   <div className="flex items-center gap-3.5 mb-4">
-                    <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/30 flex-shrink-0">
+                    <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-white">{cat.name}</h3>
+                    <h3 className="text-lg font-bold text-white drop-shadow-sm">{cat.name}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-slate-800/50 hover:bg-slate-800/80 text-slate-300 text-xs rounded-lg border border-slate-700/60 font-medium transition-colors backdrop-blur-sm">
+                      <span key={i} className="px-3 py-1.5 bg-slate-900/60 hover:bg-blue-600/20 text-slate-100 text-xs rounded-lg border border-white/10 font-medium transition-colors backdrop-blur-sm shadow-sm">
                         {item}
                       </span>
                     ))}
@@ -310,45 +311,45 @@ export default function MiddleBody() {
       <section id="projects" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
               <Globe className="w-3.5 h-3.5" /> Portfolio
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Featured Client Projects
             </h2>
-            <p className="text-slate-400 text-base">
+            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               Deployments across Next.js, PHP, and AI integrated web setups.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-slate-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 group transform-gpu">
+              <article key={idx} className="bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl group transform-gpu">
                 <div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
                     {proj.title}
                   </h3>
                   
                   <div className="flex flex-wrap gap-2 my-4">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-medium backdrop-blur-sm">
+                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/20 text-blue-300 border border-blue-400/30 rounded-md font-semibold backdrop-blur-md shadow-sm">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-100 text-sm leading-relaxed mb-6 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
                     {proj.desc}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-5 pt-4 border-t border-slate-800/60">
+                <div className="flex items-center gap-5 pt-4 border-t border-white/10">
                   <a
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors drop-shadow-sm"
                   >
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
@@ -356,7 +357,7 @@ export default function MiddleBody() {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors drop-shadow-sm"
                   >
                     <GithubIcon className="w-4 h-4" /> Source Code
                   </a>
@@ -372,11 +373,11 @@ export default function MiddleBody() {
       <section id="contact" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           
-          <div className="max-w-2xl mx-auto space-y-2">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Let&apos;s Build Something Extraordinary
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg">
+            <p className="text-slate-100 text-base sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               Have a web application, digital campaign, or GTmetrix speed optimization task? Let&apos;s connect.
             </p>
           </div>
@@ -384,32 +385,32 @@ export default function MiddleBody() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-300 shadow-lg transform-gpu"
+              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
             >
-              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 border border-blue-500/20">
+              <div className="p-3 bg-blue-500/20 rounded-xl text-blue-300 border border-blue-400/30 shadow-inner">
                 <Mail className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Email</span>
-              <span className="text-sm font-medium text-white truncate max-w-full">adarshrajstechie@gmail.com</span>
+              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Email</span>
+              <span className="text-sm font-semibold text-white truncate max-w-full drop-shadow-sm">adarshrajstechie@gmail.com</span>
             </a>
 
             <a 
               href="tel:+918075551892" 
-              className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-500/50 hover:scale-[1.02] transition-all duration-300 shadow-lg transform-gpu"
+              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
             >
-              <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20">
+              <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-400/30 shadow-inner">
                 <Phone className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Call / WhatsApp</span>
-              <span className="text-sm font-medium text-white">+91 8075551892</span>
+              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Call / WhatsApp</span>
+              <span className="text-sm font-semibold text-white drop-shadow-sm">+91 8075551892</span>
             </a>
 
-            <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md shadow-lg transform-gpu">
-              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
+            <div className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md shadow-2xl transform-gpu">
+              <div className="p-3 bg-indigo-500/20 rounded-xl text-indigo-300 border border-indigo-400/30 shadow-inner">
                 <MapPin className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Location</span>
-              <span className="text-sm font-medium text-white">Kozhikode, Kerala, India</span>
+              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Location</span>
+              <span className="text-sm font-semibold text-white drop-shadow-sm">Kozhikode, Kerala, India</span>
             </div>
           </div>
 

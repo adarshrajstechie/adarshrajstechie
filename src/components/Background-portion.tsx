@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
-export const Background = () => {
+const Background: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -16,96 +16,68 @@ export const Background = () => {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Device DPR scaling for crisp high-DPI (Retina) screens without performance penalties
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const setupCanvasSize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.scale(dpr, dpr);
-    };
-    setupCanvasSize();
-
-    let step = 0;
-
-    // Responsive wave density based on viewport width
-    const getWaveConfig = () => {
-      const isMobile = width < 768;
-      return {
-        lines: isMobile ? 4 : 7,
-        segments: isMobile ? 40 : 80,
-      };
-    };
-
-    let { lines, segments } = getWaveConfig();
-
     const handleResize = () => {
-      setupCanvasSize();
-      const config = getWaveConfig();
-      lines = config.lines;
-      segments = config.segments;
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     };
 
     window.addEventListener("resize", handleResize, { passive: true });
 
-    // Digital Transmission Wave Renderer
+    let step = 0;
+    const waveCount = 5;
+
+    const colors = [
+      { r: 99, g: 102, b: 241, a: 0.35 },  // Electric Indigo
+      { r: 168, g: 85, b: 247, a: 0.30 },   // Neon Purple
+      { r: 236, g: 72, b: 153, a: 0.25 },   // Cyber Pink
+      { r: 56, g: 189, b: 248, a: 0.30 },   // Vibrant Cyan
+      { r: 129, g: 140, b: 248, a: 0.25 },  // Soft Violet
+    ];
+
     const render = () => {
+      // Reduced step increment from 0.008 to 0.003 for smoother, slower energy wave flow
+      step += 0.003;
       ctx.clearRect(0, 0, width, height);
-      step += 0.012; // Wave transmission speed
 
-      const segmentWidth = width / segments;
-      const centerY = height * 0.65; // Position waves towards lower-center for deep depth
-
-      // Draw digital sine wave transmissions
-      for (let l = 0; l < lines; l++) {
+      for (let i = 0; i < waveCount; i++) {
+        const color = colors[i % colors.length];
         ctx.beginPath();
 
-        // Color gradient per wave line (Cyan to Blue to Purple)
-        const lineAlpha = 0.15 + (l / lines) * 0.25;
-        const strokeGrad = ctx.createLinearGradient(0, 0, width, 0);
-        strokeGrad.addColorStop(0, `rgba(6, 182, 212, ${lineAlpha * 0.3})`); // Cyan
-        strokeGrad.addColorStop(0.5, `rgba(59, 130, 246, ${lineAlpha})`);   // Electric Blue
-        strokeGrad.addColorStop(1, `rgba(139, 92, 246, ${lineAlpha * 0.4})`); // Violet
+        const frequency = 0.0025 + i * 0.0008;
+        const amplitude = Math.min(height * 0.15, 100) + i * 15;
+        const speed = step * (1 + i * 0.2);
+        const yOffset = (height / (waveCount + 1)) * (i + 1);
 
-        ctx.strokeStyle = strokeGrad;
-        ctx.lineWidth = 1.2 + l * 0.3;
+        for (let x = 0; x <= width; x += 10) {
+          const y =
+            yOffset +
+            Math.sin(x * frequency + speed) * amplitude +
+            Math.cos(x * 0.001 + speed * 0.5) * (amplitude * 0.5);
 
-        for (let i = 0; i <= segments; i++) {
-          const x = i * segmentWidth;
-          
-          // Multi-frequency sine combination for dynamic fluid waveform
-          const wave1 = Math.sin(i * 0.08 + step + l * 0.4) * (20 + l * 12);
-          const wave2 = Math.cos(i * 0.04 - step * 0.8 + l * 0.3) * (15 + l * 8);
-          const wave3 = Math.sin((i + l) * 0.02 + step * 1.5) * 10;
-          
-          const y = centerY + wave1 + wave2 + wave3;
-
-          if (i === 0) {
+          if (x === 0) {
             ctx.moveTo(x, y);
           } else {
             ctx.lineTo(x, y);
           }
         }
 
-        ctx.stroke();
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
 
-        // Digital Data Transmission Nodes (Glowing pulses along wave peaks)
-        const pulseInterval = Math.floor(segments / (4 + l));
-        for (let i = pulseInterval; i < segments; i += pulseInterval) {
-          const x = i * segmentWidth;
-          const wave1 = Math.sin(i * 0.08 + step + l * 0.4) * (20 + l * 12);
-          const wave2 = Math.cos(i * 0.04 - step * 0.8 + l * 0.3) * (15 + l * 8);
-          const wave3 = Math.sin((i + l) * 0.02 + step * 1.5) * 10;
-          const y = centerY + wave1 + wave2 + wave3;
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(
+          0,
+          `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
+        );
+        gradient.addColorStop(
+          1,
+          `rgba(${color.r / 2}, ${color.g / 2}, ${color.b}, 0.05)`
+        );
 
-          const pulseOpacity = (Math.sin(step * 3 + i + l) + 1) / 2;
-          
-          ctx.beginPath();
-          ctx.arc(x, y, 2 + pulseOpacity * 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(56, 189, 248, ${0.4 + pulseOpacity * 0.6})`;
-          ctx.fill();
-        }
+        ctx.fillStyle = gradient;
+        ctx.fill();
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -114,57 +86,36 @@ export const Background = () => {
     render();
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <>
-      <style>{`
-        @keyframes pulseSlow {
-          0%, 100% { transform: scale(1); opacity: 0.8; }
-          50% { transform: scale(1.15); opacity: 0.4; }
-        }
-        @keyframes pulseSlower {
-          0%, 100% { transform: scale(1); opacity: 0.7; }
-          50% { transform: scale(1.2); opacity: 0.3; }
-        }
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-30px) scale(1.08); }
-        }
-        .bg-animate-pulse-slow {
-          animation: pulseSlow 10s ease-in-out infinite;
-        }
-        .bg-animate-pulse-slower {
-          animation: pulseSlower 14s ease-in-out infinite;
-        }
-        .bg-animate-float-slow {
-          animation: floatSlow 12s ease-in-out infinite;
-        }
-      `}</style>
+    <div
+      tabIndex={-1}
+      aria-hidden="true"
+      className="fixed inset-0 z-[0] h-screen w-screen overflow-hidden bg-[#060913] pointer-events-none select-none"
+    >
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 h-full w-full block pointer-events-none"
+      />
+      
+      {/* Glow Orbs */}
+      <div className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full bg-indigo-600/30 blur-[130px] animate-pulse pointer-events-none" />
+      <div className="absolute top-[35%] -right-20 w-[550px] h-[550px] rounded-full bg-purple-600/25 blur-[140px] animate-pulse pointer-events-none" />
+      <div className="absolute -bottom-20 left-[20%] w-[600px] h-[600px] rounded-full bg-cyan-600/25 blur-[150px] animate-pulse pointer-events-none" />
+      
+      {/* Grid Pattern */}
       <div
-        aria-hidden="true"
-        role="presentation"
-        className="fixed inset-0 z-0 overflow-hidden bg-[#050814] pointer-events-none select-none"
-      >
-        {/* Glow Mesh Sphere 1 - Deep Sapphire Blue */}
-        <div className="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] min-w-[300px] min-h-[300px] max-w-[700px] max-h-[700px] rounded-full bg-gradient-to-br from-blue-600/35 to-indigo-900/20 blur-[90px] md:blur-[130px] bg-animate-pulse-slow will-change-transform" />
-
-        {/* Glow Mesh Sphere 2 - Electric Cyan */}
-        <div className="absolute top-[35%] -right-[15%] w-[55vw] h-[55vw] min-w-[320px] min-h-[320px] max-w-[750px] max-h-[750px] rounded-full bg-gradient-to-tl from-cyan-500/30 via-sky-600/20 to-transparent blur-[100px] md:blur-[140px] bg-animate-float-slow will-change-transform" />
-
-        {/* Glow Mesh Sphere 3 - Tech Purple Accent */}
-        <div className="absolute -bottom-[10%] left-[20%] w-[45vw] h-[45vw] min-w-[280px] min-h-[280px] max-w-[650px] max-h-[650px] rounded-full bg-gradient-to-t from-violet-600/25 via-blue-700/15 to-transparent blur-[110px] md:blur-[150px] bg-animate-pulse-slower will-change-transform" />
-
-        {/* Cybernetic Tech Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] md:bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-75" />
-
-        {/* Dynamic Wave Canvas */}
-        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-90" />
-      </div>
-    </>
+        className="absolute inset-0 h-full w-full pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
+        }}
+      />
+    </div>
   );
 };
 
