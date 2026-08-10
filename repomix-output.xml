@@ -44,6 +44,7 @@ public/
   adarsh_raj_s.jpeg
   hero-background-video-1.mp4
   hero-background-video-2.mp4
+  hero-background.png
 src/
   app/
     globals.css
@@ -362,83 +363,6 @@ const QuickContactButtons = () => {
 export default QuickContactButtons;
 </file>
 
-<file path="src/components/HeroSection.tsx">
-import React from "react";
-
-export default function HeroSection() {
-  return (
-    <section 
-      aria-label="Hero Section" 
-      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-slate-950 transform-gpu"
-    >
-      {/* High-Performance Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        poster="/bg-video-poster.jpg"
-        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none transform translate-z-0 will-change-transform opacity-90"
-      >
-        <source src="/hero-background-video-1.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Modern High-Performance Gradient Overlay (Higher Video Visibility) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/90 z-10 backdrop-blur-[1px]" />
-
-      {/* Hero Content Container */}
-      <div 
-        itemScope 
-        itemType="https://schema.org/Person"
-        className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center space-y-5 pt-16"
-      >
-        {/* Subtle Badge Tag for Modern Aesthetic */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 backdrop-blur-md text-xs sm:text-sm font-medium text-blue-300 tracking-wide">
-          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-          Full-Stack Web Developer
-        </div>
-
-        {/* Scaled-Down Modern Title with Name */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-tight md:leading-tight">
-          Hi, I&apos;m{" "}
-          <span itemProp="name" className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent font-extrabold">
-            ADARSH RAJ S
-          </span>
-          <br />
-          Building Scalable &amp; Interactive Web <span className="underline decoration-blue-500/40 underline-offset-8">Applications</span>
-        </h1>
-
-        {/* Subtitle for SEO & AI Crawler Context */}
-        <p 
-          itemProp="description"
-          className="max-w-xl text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed tracking-normal"
-        >
-          Transforming complex ideas into clean, maintainable code and seamless user interfaces from backend architecture to frontend interaction.
-        </p>
-
-        {/* Call to Action Buttons */}
-        <div className="pt-2 flex flex-wrap justify-center gap-4">
-          <a
-            href="#projects"
-            className="px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm sm:text-base transition-all shadow-lg shadow-blue-500/25 active:scale-95"
-          >
-            Explore Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-medium text-sm sm:text-base backdrop-blur-md transition-all active:scale-95"
-          >
-            Contact Me
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-</file>
-
 <file path=".gitignore">
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -624,169 +548,6 @@ body {
 }
 </file>
 
-<file path="src/app/layout.tsx">
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Adarsh Raj S | Web Developer & Performance Specialist",
-  description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, GTmetrix performance tuning, and AI vibe coding workflows.",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
-    >
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white">
-        {children}
-      </body>
-    </html>
-  );
-}
-</file>
-
-<file path="src/components/Background-portion.tsx">
-"use client";
-
-import React, { useEffect, useRef } from "react";
-
-const Background: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d", { alpha: true });
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", handleResize, { passive: true });
-
-    let step = 0;
-    const waveCount = 5;
-
-    const colors = [
-      { r: 99, g: 102, b: 241, a: 0.35 },  // Electric Indigo
-      { r: 168, g: 85, b: 247, a: 0.30 },   // Neon Purple
-      { r: 236, g: 72, b: 153, a: 0.25 },   // Cyber Pink
-      { r: 56, g: 189, b: 248, a: 0.30 },   // Vibrant Cyan
-      { r: 129, g: 140, b: 248, a: 0.25 },  // Soft Violet
-    ];
-
-    const render = () => {
-      // Reduced step increment from 0.008 to 0.003 for smoother, slower energy wave flow
-      step += 0.003;
-      ctx.clearRect(0, 0, width, height);
-
-      for (let i = 0; i < waveCount; i++) {
-        const color = colors[i % colors.length];
-        ctx.beginPath();
-
-        const frequency = 0.0025 + i * 0.0008;
-        const amplitude = Math.min(height * 0.15, 100) + i * 15;
-        const speed = step * (1 + i * 0.2);
-        const yOffset = (height / (waveCount + 1)) * (i + 1);
-
-        for (let x = 0; x <= width; x += 10) {
-          const y =
-            yOffset +
-            Math.sin(x * frequency + speed) * amplitude +
-            Math.cos(x * 0.001 + speed * 0.5) * (amplitude * 0.5);
-
-          if (x === 0) {
-            ctx.moveTo(x, y);
-          } else {
-            ctx.lineTo(x, y);
-          }
-        }
-
-        ctx.lineTo(width, height);
-        ctx.lineTo(0, height);
-        ctx.closePath();
-
-        const gradient = ctx.createLinearGradient(0, 0, width, height);
-        gradient.addColorStop(
-          0,
-          `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
-        );
-        gradient.addColorStop(
-          1,
-          `rgba(${color.r / 2}, ${color.g / 2}, ${color.b}, 0.05)`
-        );
-
-        ctx.fillStyle = gradient;
-        ctx.fill();
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return (
-    <div
-      tabIndex={-1}
-      aria-hidden="true"
-      className="fixed inset-0 z-[0] h-screen w-screen overflow-hidden bg-[#060913] pointer-events-none select-none"
-    >
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 h-full w-full block pointer-events-none"
-      />
-      
-      {/* Glow Orbs */}
-      <div className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full bg-indigo-600/30 blur-[130px] animate-pulse pointer-events-none" />
-      <div className="absolute top-[35%] -right-20 w-[550px] h-[550px] rounded-full bg-purple-600/25 blur-[140px] animate-pulse pointer-events-none" />
-      <div className="absolute -bottom-20 left-[20%] w-[600px] h-[600px] rounded-full bg-cyan-600/25 blur-[150px] animate-pulse pointer-events-none" />
-      
-      {/* Grid Pattern */}
-      <div
-        className="absolute inset-0 h-full w-full pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
-    </div>
-  );
-};
-
-export default Background;
-</file>
-
 <file path="src/components/Footer.tsx">
 import React from 'react';
 
@@ -932,80 +693,44 @@ export default function Footer() {
 }
 </file>
 
-<file path="next.config.ts">
-import type { NextConfig } from 'next';
-import path from 'path';
+<file path="src/app/layout.tsx">
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
-const nextConfig: NextConfig = {
-  // --- SEO & ROUTING OPTIMIZATION ---
-  trailingSlash: true,
-  reactStrictMode: true, // Enforces modern React patterns & eliminates rendering bugs
-  poweredByHeader: false, // Security hardening: removes X-Powered-By header
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap", // Prevents FOIT & improves Core Web Vitals
+});
 
-  // --- IMAGES & PERFORMANCE OPTIMIZATION ---
-  images: {
-    unoptimized: false, // Keeps automatic resizing and WebP/AVIF generation active on Vercel
-    formats: ['image/avif', 'image/webp'], // Delivers next-gen images first for maximum performance
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Custom responsive breakpoints
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Sharp thumbnail grids without layout shift
-    minimumCacheTTL: 31536000, // Directs Vercel edge CDN to cache images for 1 year
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
-  },
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
 
-  // --- SECURITY & SEO HEADERS (SERVER-LEVEL ENGINE PARSING) ---
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
-
-  // --- EXPERIMENTAL & COMPILER RULES ---
-  devIndicators: false,
-
-  // Advanced Webpack configuration to guarantee zero layout shifts and instant bundle delivery
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname),
-    };
-    return config;
-  },
-
-  turbopack: {
-    root: path.resolve(__dirname),
-  },
+export const metadata: Metadata = {
+  title: "Adarsh Raj S | Web Developer & Performance Specialist",
+  description: "Portfolio of Adarsh Raj S - Web Developer specializing in Next.js, React, PHP, Technical SEO, and GTmetrix performance tuning.",
 };
 
-export default nextConfig;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+    >
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 selection:bg-blue-600 selection:text-white">
+        {children}
+      </body>
+    </html>
+  );
+}
 </file>
 
 <file path="src/components/Header.tsx">
@@ -1271,6 +996,83 @@ export default function Header() {
 }
 </file>
 
+<file path="src/components/HeroSection.tsx">
+import React from "react";
+
+export default function HeroSection() {
+  return (
+    <section 
+      aria-label="Hero Section" 
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-slate-950 transform-gpu"
+    >
+      {/* High-Performance Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/bg-video-poster.jpg"
+        className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none transform translate-z-0 will-change-transform opacity-90"
+      >
+        <source src="/hero-background-video-1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Modern High-Performance Gradient Overlay (Higher Video Visibility) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/90 z-10 backdrop-blur-[1px]" />
+
+      {/* Hero Content Container */}
+      <div 
+        itemScope 
+        itemType="https://schema.org/Person"
+        className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center space-y-5 pt-16"
+      >
+        {/* Subtle Badge Tag for Modern Aesthetic */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 backdrop-blur-md text-xs sm:text-sm font-medium text-blue-300 tracking-wide">
+          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          Full-Stack Web Developer
+        </div>
+
+        {/* Scaled-Down Modern Title with Name */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight sm:leading-tight md:leading-tight">
+          Hi, I&apos;m{" "}
+          <span itemProp="name" className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent font-extrabold">
+            ADARSH RAJ S
+          </span>
+          <br />
+          Building Scalable &amp; Interactive Web <span className="underline decoration-blue-500/40 underline-offset-8">Applications</span>
+        </h1>
+
+        {/* Subtitle for SEO & AI Crawler Context */}
+        <p 
+          itemProp="description"
+          className="max-w-xl text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed tracking-normal"
+        >
+          Transforming complex ideas into clean, maintainable code and seamless user interfaces from backend architecture to frontend interaction.
+        </p>
+
+        {/* Call to Action Buttons */}
+        <div className="pt-2 flex flex-wrap justify-center gap-4">
+          <a
+            href="#projects"
+            className="px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm sm:text-base transition-all shadow-lg shadow-blue-500/25 active:scale-95"
+          >
+            Explore Projects
+          </a>
+          <a
+            href="#contact"
+            className="px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/10 font-medium text-sm sm:text-base backdrop-blur-md transition-all active:scale-95"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+</file>
+
 <file path="package.json">
 {
   "name": "my-next-project",
@@ -1300,6 +1102,131 @@ export default function Header() {
     "typescript": "^5"
   }
 }
+</file>
+
+<file path="src/components/Background-portion.tsx">
+"use client";
+
+import React, { useEffect, useRef } from "react";
+
+const Background: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    const handleResize = () => {
+      if (!canvas) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+
+    let step = 0;
+    const waveCount = 5;
+
+    const colors = [
+      { r: 99, g: 102, b: 241, a: 0.35 },  // Electric Indigo
+      { r: 168, g: 85, b: 247, a: 0.30 },   // Neon Purple
+      { r: 236, g: 72, b: 153, a: 0.25 },   // Cyber Pink
+      { r: 56, g: 189, b: 248, a: 0.30 },   // Vibrant Cyan
+      { r: 129, g: 140, b: 248, a: 0.25 },  // Soft Violet
+    ];
+
+    const render = () => {
+      // Reduced step increment from 0.008 to 0.003 for smoother, slower energy wave flow
+      step += 0.003;
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < waveCount; i++) {
+        const color = colors[i % colors.length];
+        ctx.beginPath();
+
+        const frequency = 0.0025 + i * 0.0008;
+        const amplitude = Math.min(height * 0.15, 100) + i * 15;
+        const speed = step * (1 + i * 0.2);
+        const yOffset = (height / (waveCount + 1)) * (i + 1);
+
+        for (let x = 0; x <= width; x += 10) {
+          const y =
+            yOffset +
+            Math.sin(x * frequency + speed) * amplitude +
+            Math.cos(x * 0.001 + speed * 0.5) * (amplitude * 0.5);
+
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+
+        const gradient = ctx.createLinearGradient(0, 0, width, height);
+        gradient.addColorStop(
+          0,
+          `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
+        );
+        gradient.addColorStop(
+          1,
+          `rgba(${color.r / 2}, ${color.g / 2}, ${color.b}, 0.05)`
+        );
+
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <div
+      tabIndex={-1}
+      aria-hidden="true"
+      className="fixed inset-0 z-[0] h-screen w-screen overflow-hidden bg-[#060913] pointer-events-none select-none"
+    >
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 h-full w-full block pointer-events-none"
+      />
+      
+      {/* Glow Orbs */}
+      <div className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full bg-indigo-600/30 blur-[130px] animate-pulse pointer-events-none" />
+      <div className="absolute top-[35%] -right-20 w-[550px] h-[550px] rounded-full bg-purple-600/25 blur-[140px] animate-pulse pointer-events-none" />
+      <div className="absolute -bottom-20 left-[20%] w-[600px] h-[600px] rounded-full bg-cyan-600/25 blur-[150px] animate-pulse pointer-events-none" />
+      
+      {/* Grid Pattern */}
+      <div
+        className="absolute inset-0 h-full w-full pointer-events-none opacity-[0.04]"
+        style={{
+          backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px)`,
+          backgroundSize: "32px 32px",
+        }}
+      />
+    </div>
+  );
+};
+
+export default Background;
 </file>
 
 <file path="src/app/page.tsx">
@@ -1466,6 +1393,96 @@ export default function Home() {
 }
 </file>
 
+<file path="next.config.ts">
+import type { NextConfig } from 'next';
+import path from 'path';
+
+const nextConfig: NextConfig = {
+  // --- SEO & ROUTING OPTIMIZATION ---
+  trailingSlash: true,
+  reactStrictMode: true, // Enforces modern React patterns & eliminates rendering bugs
+  poweredByHeader: false, // Security hardening: removes X-Powered-By header
+
+  // --- EXPERIMENTAL & BUNDLE PERFORMANCE OPTIMIZATION ---
+  // Fixes icon bundle bloat & optimizes tree-shaking for Lucide & UI components
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+
+  // Compiler-level minification & production performance enhancements
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+
+  // --- IMAGES & PERFORMANCE OPTIMIZATION ---
+  images: {
+    unoptimized: false, // Keeps automatic resizing and WebP/AVIF generation active on Vercel
+    formats: ['image/avif', 'image/webp'], // Delivers next-gen images first for maximum performance
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Custom responsive breakpoints
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Sharp thumbnail grids without layout shift
+    minimumCacheTTL: 31536000, // Directs Vercel edge CDN to cache images for 1 year
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+  },
+
+  // --- SECURITY & SEO HEADERS (SERVER-LEVEL ENGINE PARSING) ---
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
+  },
+
+  // --- EXPERIMENTAL & COMPILER RULES ---
+  devIndicators: false,
+
+  // Advanced Webpack configuration to guarantee zero layout shifts and instant bundle delivery
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname),
+    };
+    return config;
+  },
+
+  turbopack: {
+    root: path.resolve(__dirname),
+    resolveAlias: {
+      '@': path.resolve(__dirname),
+    },
+  },
+};
+
+export default nextConfig;
+</file>
+
 <file path="src/components/MiddleBody.tsx">
 import Image from "next/image";
 import { 
@@ -1601,7 +1618,7 @@ export default function MiddleBody() {
   };
 
   return (
-    <main className="w-full bg-transparent text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white">
+    <main className="w-full bg-slate-950 text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white">
       {/* Search Engine & AI Level Structured Data */}
       <script
         type="application/ld+json"
@@ -1609,35 +1626,34 @@ export default function MiddleBody() {
       />
 
       {/* 1. ABOUT SECTION */}
-      <section id="about" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="about" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-gradient-to-b from-slate-900/50 via-slate-950 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-bold tracking-wide uppercase backdrop-blur-xl shadow-lg">
-                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> About Me & Qualifications
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
+                <Sparkles className="w-4 h-4" /> About Me & Qualifications
               </div>
               
-              <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm">Digital Engineer</span>
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">Digital Engineer</span>
               </h1>
               
-              <p className="text-slate-100 text-base sm:text-lg leading-relaxed font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
                 Specialized in building ultra-fast Next.js web applications, custom PHP backend systems, and technical SEO architectures. I turn ideas into high-converting, GTmetrix Grade-A platforms across India & UAE.
               </p>
 
-              {/* Education Glass Card */}
-              <div className="relative group overflow-hidden bg-slate-950/30 border border-white/10 hover:border-blue-500/40 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-2xl transition-all duration-300 transform-gpu">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative flex items-start gap-4">
-                  <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
+              {/* Education Card */}
+              <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl backdrop-blur-sm shadow-lg hover:border-slate-700 transition-all duration-300">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/20 flex-shrink-0">
                     <GraduationCap className="w-7 h-7" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-white drop-shadow-sm">B.TECH in Mechanical Engineering</h2>
-                    <p className="text-slate-300 text-sm mt-1 drop-shadow-sm">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
-                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-blue-200 font-semibold bg-slate-900/60 px-3 py-1 rounded-lg border border-white/10 backdrop-blur-sm">
+                    <h2 className="text-lg font-bold text-white">B.TECH in Mechanical Engineering</h2>
+                    <p className="text-slate-400 text-sm mt-1">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1 rounded-lg border border-slate-700/60">
                       <MapPin className="w-3.5 h-3.5 text-blue-400" /> Kozhikode, Kerala, India
                     </div>
                   </div>
@@ -1648,8 +1664,8 @@ export default function MiddleBody() {
             {/* Right Profile Image */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group w-full max-w-sm sm:max-w-md">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/30 to-cyan-500/50 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-500 transform-gpu"></div>
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/20 bg-slate-950/20 backdrop-blur-sm shadow-2xl">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 transform-gpu"></div>
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
                     alt="Adarsh Raj S - Web Developer Profile Image"
@@ -1658,7 +1674,7 @@ export default function MiddleBody() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -1667,57 +1683,57 @@ export default function MiddleBody() {
         </div>
       </section>
 
-      {/* 2. EXPERIENCE SECTION */}
-      <section id="experience" className="w-full py-12 lg:py-16 bg-transparent">
+      {/* 2. EXPERIENCE SECTION (FULL WIDTH RESPONSIVE TIMELINE) */}
+      <section id="experience" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
+          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
               <Briefcase className="w-3.5 h-3.5" /> Professional History
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Work Experience Journey
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-400 text-base">
               Hands-on engineering, performance tuning, and digital marketing results.
             </p>
           </div>
 
-          {/* Timeline Container */}
+          {/* Full Width Container */}
           <div className="w-full relative pl-6 sm:pl-10">
-            {/* Timeline Vertical Line */}
-            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-400 via-indigo-400/50 to-transparent"></div>
+            {/* Timeline Vertical Track Line */}
+            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500/50 to-slate-800"></div>
 
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-8 sm:space-y-10">
               {experiences.map((exp, idx) => (
                 <article key={idx} className="relative group pl-4 sm:pl-6">
                   
-                  {/* Timeline Bullet Marker */}
+                  {/* Timeline Node Bullet Marker */}
                   <div className="absolute -left-[19px] sm:-left-[29px] top-6 -translate-y-1/2 flex items-center justify-center z-10">
                     <span className="relative flex h-5 w-5 items-center justify-center">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-40"></span>
-                      <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-blue-400 group-hover:border-cyan-300 group-hover:scale-125 transition-all duration-300"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-30"></span>
+                      <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-blue-500 group-hover:border-cyan-400 group-hover:scale-125 transition-all duration-300"></span>
                     </span>
                   </div>
 
-                  {/* Glass Card Box */}
-                  <div className="relative overflow-hidden w-full bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl hover:shadow-blue-950/30 transform-gpu">
+                  {/* Full Width Card Content Box */}
+                  <div className="w-full bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-slate-700 hover:bg-slate-900/90 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/30 transform-gpu">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
                         {exp.role}
                       </h3>
                       
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1.5 rounded-lg backdrop-blur-md">
-                          <Calendar className="w-3.5 h-3.5 text-blue-400" /> {exp.period}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg">
+                          <Calendar className="w-3.5 h-3.5" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200 bg-slate-900/60 border border-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md">
-                          <Briefcase className="w-3.5 h-3.5 text-slate-300" /> {exp.company}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/80 border border-slate-700/60 px-3 py-1.5 rounded-lg">
+                          <Briefcase className="w-3.5 h-3.5 text-slate-400" /> {exp.company}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-slate-100 text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>
@@ -1731,39 +1747,39 @@ export default function MiddleBody() {
       </section>
 
       {/* 3. TECHNICAL SKILLS & ECOSYSTEM */}
-      <section id="skills" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="skills" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-900/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
+          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
               <Code className="w-3.5 h-3.5" /> Capabilities
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Technical Skills & Ecosystem
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-400 text-base">
               Tech stack, database systems, digital growth tools, and AI workflows.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {categories.map((cat, idx) => {
               const Icon = cat.icon;
               const spanClass = idx < 3 ? "lg:col-span-2" : "lg:col-span-3";
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-950/30 border border-white/10 rounded-2xl p-6 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 hover:-translate-y-1 transform-gpu shadow-2xl ${spanClass}`}
+                  className={`bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 hover:-translate-y-1 transform-gpu ${spanClass}`}
                 >
-                  <div className="flex items-center gap-3.5 mb-4">
-                    <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
+                  <div className="flex items-center gap-3.5 mb-5">
+                    <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/20">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-white drop-shadow-sm">{cat.name}</h3>
+                    <h3 className="text-lg font-bold text-white">{cat.name}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-slate-900/60 hover:bg-blue-600/20 text-slate-100 text-xs rounded-lg border border-white/10 font-medium transition-colors backdrop-blur-sm shadow-sm">
+                      <span key={i} className="px-3 py-1.5 bg-slate-800/90 hover:bg-slate-800 text-slate-300 text-xs rounded-lg border border-slate-700/70 font-medium transition-colors">
                         {item}
                       </span>
                     ))}
@@ -1777,48 +1793,48 @@ export default function MiddleBody() {
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
-      <section id="projects" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="projects" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
+          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
               <Globe className="w-3.5 h-3.5" /> Portfolio
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Featured Client Projects
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-400 text-base">
               Deployments across Next.js, PHP, and AI integrated web setups.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-950/30 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl group transform-gpu">
+              <article key={idx} className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-slate-700 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 group transform-gpu">
                 <div>
-                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                  <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
                     {proj.title}
                   </h3>
                   
                   <div className="flex flex-wrap gap-2 my-4">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/20 text-blue-300 border border-blue-400/30 rounded-md font-semibold backdrop-blur-md shadow-sm">
+                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-medium">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <p className="text-slate-100 text-sm leading-relaxed mb-6 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+                  <p className="text-slate-300 text-sm leading-relaxed mb-6">
                     {proj.desc}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-5 pt-4 border-t border-white/10">
+                <div className="flex items-center gap-5 pt-5 border-t border-slate-800/90">
                   <a
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors drop-shadow-sm"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
@@ -1826,7 +1842,7 @@ export default function MiddleBody() {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors drop-shadow-sm"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" /> Source Code
                   </a>
@@ -1839,47 +1855,47 @@ export default function MiddleBody() {
       </section>
 
       {/* 5. CONTACT SECTION */}
-      <section id="contact" className="w-full py-12 lg:py-16 bg-transparent">
+      <section id="contact" className="w-full py-16 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           
           <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Let&apos;s Build Something Extraordinary
             </h2>
-            <p className="text-slate-100 text-base sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-300 text-base sm:text-lg">
               Have a web application, digital campaign, or GTmetrix speed optimization task? Let&apos;s connect.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
+              className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-blue-500/50 hover:scale-[1.03] transition-all duration-300 shadow-lg transform-gpu"
             >
-              <div className="p-3 bg-blue-500/20 rounded-xl text-blue-300 border border-blue-400/30 shadow-inner">
+              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
                 <Mail className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Email</span>
-              <span className="text-sm font-semibold text-white truncate max-w-full drop-shadow-sm">adarshrajstechie@gmail.com</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Email</span>
+              <span className="text-sm font-medium text-white truncate max-w-full">adarshrajstechie@gmail.com</span>
             </a>
 
             <a 
               href="tel:+918075551892" 
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu"
+              className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-emerald-500/50 hover:scale-[1.03] transition-all duration-300 shadow-lg transform-gpu"
             >
-              <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-400/30 shadow-inner">
+              <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
                 <Phone className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Call / WhatsApp</span>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">+91 8075551892</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Call / WhatsApp</span>
+              <span className="text-sm font-medium text-white">+91 8075551892</span>
             </a>
 
-            <div className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md shadow-2xl transform-gpu">
-              <div className="p-3 bg-indigo-500/20 rounded-xl text-indigo-300 border border-indigo-400/30 shadow-inner">
+            <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 shadow-lg">
+              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
                 <MapPin className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Location</span>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">Kozhikode, Kerala, India</span>
+              <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Location</span>
+              <span className="text-sm font-medium text-white">Kozhikode, Kerala, India</span>
             </div>
           </div>
 

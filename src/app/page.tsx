@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import MiddleBody from "@/components/MiddleBody";
 import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
-import Background from "@/components/Background-portion";
 import type { Metadata } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "/";
@@ -145,10 +144,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchemaData) }}
       />
 
-      {/* Fixed canvas sitting behind content */}
-      <Background />
-
-      {/* Foreground elements with relative positioning and higher z-index */}
+      {/* Foreground elements */}
       <div className="relative z-10 w-full min-h-screen">
         <Header />
         <HeroSection />

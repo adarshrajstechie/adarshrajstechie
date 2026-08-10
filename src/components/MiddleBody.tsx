@@ -13,10 +13,11 @@ import {
   MapPin, 
   ExternalLink,
   Calendar,
-  Sparkles
+  Sparkles,
+  ArrowUpRight,
+  CheckCircle2
 } from "lucide-react";
 
-// Custom SVG for GitHub Icon with standard w-5 h-5 sizing
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
     <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
@@ -96,100 +97,124 @@ export default function MiddleBody() {
     { name: "SEO & Digital Growth", icon: TrendingUp, items: ["Technical SEO", "GTmetrix Optimization", "Google Search Console", "Google Analytics", "Meta & Google Ads"] },
   ];
 
-  // Search Engine & AI Crawler Level Structured Data (Expanded with Schema.org standards)
   const jsonLdSchema = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Adarsh Raj S",
-    "jobTitle": "Full-Stack Web Developer & Digital Engineer",
-    "url": "https://www.4bizinternational.com/",
-    "email": "adarshrajstechie@gmail.com",
-    "telephone": "+918075551892",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kozhikode",
-      "addressRegion": "Kerala",
-      "addressCountry": "India"
-    },
-    "knowsAbout": [
-      "Next.js",
-      "React",
-      "Node.js",
-      "PHP",
-      "WordPress",
-      "Technical SEO",
-      "GTmetrix Performance Optimization",
-      "Digital Marketing"
-    ],
-    "worksFor": experiences.map((exp) => ({
-      "@type": "EmployeeRole",
-      "roleName": exp.role,
-      "worksFor": {
-        "@type": "Organization",
-        "name": exp.company
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.4bizinternational.com/#person",
+        "name": "Adarsh Raj S",
+        "jobTitle": "Full-Stack Web Developer & Digital Engineer",
+        "url": "https://www.4bizinternational.com/",
+        "email": "mailto:adarshrajstechie@gmail.com",
+        "telephone": "+918075551892",
+        "sameAs": [
+          "https://github.com/adarshrajstechie"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kozhikode",
+          "addressRegion": "Kerala",
+          "addressCountry": "India"
+        },
+        "knowsAbout": [
+          "Next.js",
+          "React",
+          "Node.js",
+          "PHP",
+          "WordPress",
+          "Technical SEO",
+          "GTmetrix Performance Optimization",
+          "Digital Marketing",
+          "Full-Stack Web Development",
+          "AI Application Integration"
+        ],
+        "worksFor": experiences.map((exp) => ({
+          "@type": "EmployeeRole",
+          "roleName": exp.role,
+          "worksFor": {
+            "@type": "Organization",
+            "name": exp.company
+          }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        "name": "Featured Portfolio Projects by Adarsh Raj S",
+        "itemListElement": projects.map((proj, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": proj.title,
+            "description": proj.desc,
+            "url": proj.live,
+            "applicationCategory": "DeveloperApplication"
+          }
+        }))
       }
-    }))
+    ]
   };
 
   return (
-    <main className="w-full bg-transparent text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white scroll-smooth">
-      {/* Search Engine, LLM & AI Level Structured Data */}
+    <main className="w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-indigo-950/40 to-slate-950 text-slate-100 overflow-x-hidden antialiased selection:bg-cyan-500 selection:text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
       />
 
       {/* 1. ABOUT SECTION */}
-      <section id="about" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <section id="about" className="w-full py-20 lg:py-32 relative overflow-hidden">
+        {/* Hardware-accelerated background light glows */}
+        <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-cyan-600/10 blur-[120px] pointer-events-none rounded-full transform-gpu" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-5 sm:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/40 text-blue-300 text-xs font-bold tracking-wide uppercase backdrop-blur-xl shadow-lg">
-                <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" /> About Me & Qualifications
+            <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" /> 
+                <span>About Me &amp; Qualifications</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                Full-Stack Web Developer & <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-cyan-300 bg-clip-text text-transparent drop-shadow-sm">Digital Engineer</span>
+              <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                Full-Stack Web Developer &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">Digital Engineer</span>
               </h1>
               
-              <p className="text-slate-100 text-base sm:text-lg leading-relaxed font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-                Specialized in building ultra-fast Next.js web applications, custom PHP backend systems, and technical SEO architectures. I turn ideas into high-converting, GTmetrix Grade-A platforms across India & UAE.
+              <p className="text-slate-300 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                Specialized in building ultra-fast <strong className="text-white font-semibold">Next.js</strong> web applications, custom <strong className="text-white font-semibold">PHP</strong> backend systems, and technical SEO architectures. I turn ambitious ideas into high-converting, GTmetrix Grade-A platforms across India &amp; UAE.
               </p>
 
-              {/* Education Glass Card */}
-              <div className="relative group overflow-hidden bg-slate-950/30 border border-white/10 hover:border-blue-500/40 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-2xl transition-all duration-300 transform-gpu">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative flex items-start gap-4">
-                  <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
-                    <GraduationCap className="w-7 h-7" />
+              <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-xl hover:border-cyan-500/30 transition-colors duration-200">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
+                  <div className="p-3.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
+                    <GraduationCap className="w-8 h-8" />
                   </div>
-                  <div>
-                    <h2 className="text-lg font-bold text-white drop-shadow-sm">B.TECH in Mechanical Engineering</h2>
-                    <p className="text-slate-300 text-sm mt-1 drop-shadow-sm">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
-                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-blue-200 font-semibold bg-slate-900/60 px-3 py-1 rounded-lg border border-white/10 backdrop-blur-sm">
-                      <MapPin className="w-3.5 h-3.5 text-blue-400" /> Kozhikode, Kerala, India
+                  <div className="space-y-1.5">
+                    <h2 className="text-xl font-bold text-white">B.TECH in Mechanical Engineering</h2>
+                    <p className="text-slate-400 text-sm font-medium">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+                    <div className="pt-2">
+                      <span className="inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700/80">
+                        <MapPin className="w-4 h-4 text-cyan-400" /> Kozhikode, Kerala, India
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Profile Image */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-xs sm:max-w-sm md:max-w-md">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/50 via-indigo-500/30 to-cyan-500/50 rounded-3xl blur-2xl opacity-40 group-hover:opacity-75 transition duration-500 transform-gpu"></div>
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-white/20 bg-slate-950/20 backdrop-blur-sm shadow-2xl">
+              <div className="relative group w-full max-w-xs sm:max-w-sm lg:max-w-md">
+                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-25 group-hover:opacity-50 transition duration-300 transform-gpu" />
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
-                    alt="Adarsh Raj S - Web Developer Profile Image"
+                    alt="Adarsh Raj S - Web Developer Profile"
                     fill
                     priority
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 384px, 416px"
+                    className="object-cover object-center transform-gpu transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -199,56 +224,49 @@ export default function MiddleBody() {
       </section>
 
       {/* 2. EXPERIENCE SECTION */}
-      <section id="experience" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
+      <section id="experience" className="w-full py-20 lg:py-28 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
-              <Briefcase className="w-3.5 h-3.5" /> Professional History
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+              <Briefcase className="w-4 h-4" /> <span>Professional History</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Work Experience Journey
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-400 text-base sm:text-lg">
               Hands-on engineering, performance tuning, and digital marketing results.
             </p>
           </div>
 
-          {/* Timeline Container */}
-          <div className="w-full relative pl-6 sm:pl-10">
-            {/* Timeline Vertical Line */}
-            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-400 via-indigo-400/50 to-transparent"></div>
+          <div className="w-full relative pl-4 sm:pl-8 lg:pl-10 max-w-4xl mx-auto">
+            <div aria-hidden="true" className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-transparent" />
 
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-10">
               {experiences.map((exp, idx) => (
-                <article key={idx} className="relative group pl-4 sm:pl-6">
+                <article key={idx} className="relative group pl-6 sm:pl-8">
                   
-                  {/* Timeline Bullet Marker */}
-                  <div className="absolute -left-[19px] sm:-left-[29px] top-6 -translate-y-1/2 flex items-center justify-center z-10">
-                    <span className="relative flex h-5 w-5 items-center justify-center">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-40"></span>
-                      <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-blue-400 group-hover:border-cyan-300 group-hover:scale-125 transition-all duration-300"></span>
-                    </span>
+                  <div className="absolute -left-[19px] sm:-left-[27px] top-7 -translate-y-1/2 flex items-center justify-center z-10">
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform duration-200" />
                   </div>
 
-                  {/* Glass Card Box */}
-                  <div className="relative overflow-hidden w-full bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-8 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl hover:shadow-blue-950/30 transform-gpu">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
-                      <h3 className="text-lg sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
+                  <div className="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl hover:border-slate-700 transition-colors duration-200">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                         {exp.role}
                       </h3>
                       
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1.5 rounded-lg backdrop-blur-md">
-                          <Calendar className="w-3.5 h-3.5 text-blue-400" /> {exp.period}
+                      <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1.5 rounded-lg">
+                          <Calendar className="w-3.5 h-3.5 text-cyan-400" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200 bg-slate-900/60 border border-white/10 px-3 py-1.5 rounded-lg backdrop-blur-md">
-                          <Briefcase className="w-3.5 h-3.5 text-slate-300" /> {exp.company}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                          <Briefcase className="w-3.5 h-3.5 text-slate-400" /> {exp.company}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-slate-100 text-sm sm:text-base leading-relaxed drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>
@@ -261,40 +279,40 @@ export default function MiddleBody() {
         </div>
       </section>
 
-      {/* 3. TECHNICAL SKILLS & ECOSYSTEM */}
-      <section id="skills" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
+      {/* 3. TECHNICAL SKILLS */}
+      <section id="skills" className="w-full py-20 lg:py-28 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
-              <Code className="w-3.5 h-3.5" /> Capabilities
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+              <Code className="w-4 h-4" /> <span>Capabilities</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              Technical Skills & Ecosystem
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              Technical Skills &amp; Ecosystem
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-400 text-base sm:text-lg">
               Tech stack, database systems, digital growth tools, and AI workflows.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
             {categories.map((cat, idx) => {
               const Icon = cat.icon;
               const spanClass = idx < 3 ? "lg:col-span-2" : "lg:col-span-3";
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 hover:-translate-y-1 transform-gpu shadow-2xl ${spanClass}`}
+                  className={`bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-slate-700 transition-colors duration-200 ${spanClass}`}
                 >
-                  <div className="flex items-center gap-3.5 mb-4">
-                    <div className="p-3 bg-blue-500/20 text-blue-300 rounded-xl border border-blue-400/30 flex-shrink-0 shadow-inner">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <h3 className="text-lg font-bold text-white drop-shadow-sm">{cat.name}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-white">{cat.name}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-slate-900/60 hover:bg-blue-600/20 text-slate-100 text-xs rounded-lg border border-white/10 font-medium transition-colors backdrop-blur-sm shadow-sm">
+                      <span key={i} className="px-3 py-1.5 bg-slate-800/90 text-slate-300 text-xs font-medium rounded-lg border border-slate-700/80 hover:text-white transition-colors duration-150">
                         {item}
                       </span>
                     ))}
@@ -308,49 +326,51 @@ export default function MiddleBody() {
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
-      <section id="projects" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
+      <section id="projects" className="w-full py-20 lg:py-28 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase backdrop-blur-md shadow-md">
-              <Globe className="w-3.5 h-3.5" /> Portfolio
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
+              <Globe className="w-4 h-4" /> <span>Portfolio</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Featured Client Projects
             </h2>
-            <p className="text-slate-200 text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-              Deployments across Next.js, PHP, and AI integrated web setups.
+            <p className="text-slate-400 text-base sm:text-lg">
+              Deployments across Next.js, PHP, and AI-integrated web setups.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-950/30 border border-white/10 rounded-2xl p-5 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-blue-500/40 hover:bg-slate-950/40 transition-all duration-300 shadow-2xl group transform-gpu">
+              <article key={idx} className="bg-slate-900/90 border border-slate-800 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-cyan-500/40 transition-colors duration-200 shadow-xl group">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors drop-shadow-sm">
-                    {proj.title}
-                  </h3>
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
+                      {proj.title}
+                    </h3>
+                    <ArrowUpRight className="w-6 h-6 text-slate-500 group-hover:text-cyan-400 transition-colors duration-200 shrink-0" />
+                  </div>
                   
                   <div className="flex flex-wrap gap-2 my-4">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/20 text-blue-300 border border-blue-400/30 rounded-md font-semibold backdrop-blur-md shadow-sm">
+                      <span key={i} className="px-2.5 py-1 text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 rounded-md">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <p className="text-slate-100 text-sm leading-relaxed mb-6 drop-shadow-[0_1px_5px_rgba(0,0,0,0.9)]">
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
                     {proj.desc}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-5 pt-4 border-t border-white/10">
+                <div className="flex flex-wrap items-center gap-6 pt-5 border-t border-slate-800/80">
                   <a
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Visit live site for ${proj.title}`}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-blue-300 hover:text-blue-200 transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-150"
                   >
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
@@ -358,8 +378,7 @@ export default function MiddleBody() {
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`View source code on GitHub for ${proj.title}`}
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-white transition-colors drop-shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-md"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-150"
                   >
                     <GithubIcon className="w-4 h-4" /> Source Code
                   </a>
@@ -372,51 +391,59 @@ export default function MiddleBody() {
       </section>
 
       {/* 5. CONTACT SECTION */}
-      <section id="contact" className="w-full py-10 sm:py-14 lg:py-20 bg-transparent">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      <section id="contact" className="w-full py-20 lg:py-32 relative">
+        <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/10 blur-[140px] pointer-events-none rounded-full transform-gpu" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 relative z-10">
           
-          <div className="max-w-2xl mx-auto space-y-3">
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+          <div className="max-w-2xl mx-auto space-y-4">
+            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
               Let&apos;s Build Something Extraordinary
             </h2>
-            <p className="text-slate-100 text-base sm:text-lg drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            <p className="text-slate-300 text-base sm:text-lg">
               Have a web application, digital campaign, or GTmetrix speed optimization task? Let&apos;s connect.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              aria-label="Send an email to Adarsh Raj S"
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 hover:border-cyan-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
             >
-              <div className="p-3 bg-blue-500/20 rounded-xl text-blue-300 border border-blue-400/30 shadow-inner">
+              <div className="p-3.5 bg-cyan-500/10 rounded-xl text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform duration-200">
                 <Mail className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Email</span>
-              <span className="text-sm font-semibold text-white truncate max-w-full drop-shadow-sm">adarshrajstechie@gmail.com</span>
+              <div className="space-y-1 max-w-full">
+                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Email</span>
+                <span className="text-sm font-medium text-white truncate block">adarshrajstechie@gmail.com</span>
+              </div>
             </a>
 
             <a 
               href="tel:+918075551892" 
-              aria-label="Call or WhatsApp Adarsh Raj S"
-              className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-400/50 hover:bg-slate-950/50 hover:scale-[1.02] transition-all duration-300 shadow-2xl transform-gpu focus:outline-none focus:ring-2 focus:ring-emerald-400"
+              className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 hover:border-emerald-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
             >
-              <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-300 border border-emerald-400/30 shadow-inner">
+              <div className="p-3.5 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform duration-200">
                 <Phone className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Call / WhatsApp</span>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">+91 8075551892</span>
+              <div className="space-y-1">
+                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Call / WhatsApp</span>
+                <span className="text-sm font-medium text-white block">+91 8075551892</span>
+              </div>
             </a>
 
-            <div className="bg-slate-950/30 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md shadow-2xl transform-gpu">
-              <div className="p-3 bg-indigo-500/20 rounded-xl text-indigo-300 border border-indigo-400/30 shadow-inner">
+            <div className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 shadow-xl">
+              <div className="p-3.5 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
                 <MapPin className="w-6 h-6" />
               </div>
-              <span className="text-xs text-slate-300 uppercase tracking-wider font-bold">Location</span>
-              <span className="text-sm font-semibold text-white drop-shadow-sm">Kozhikode, Kerala, India</span>
+              <div className="space-y-1">
+                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Location</span>
+                <span className="text-sm font-medium text-white block">Kozhikode, Kerala, India</span>
+              </div>
             </div>
           </div>
+
+
 
         </div>
       </section>
