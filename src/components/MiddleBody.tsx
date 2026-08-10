@@ -132,7 +132,7 @@ export default function MiddleBody() {
   };
 
   return (
-    <main className="w-full bg-slate-950 text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white">
+    <main className="w-full bg-transparent text-slate-100 overflow-x-hidden transition-colors duration-300 antialiased selection:bg-blue-500 selection:text-white">
       {/* Search Engine & AI Level Structured Data */}
       <script
         type="application/ld+json"
@@ -140,13 +140,13 @@ export default function MiddleBody() {
       />
 
       {/* 1. ABOUT SECTION */}
-      <section id="about" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-gradient-to-b from-slate-900/50 via-slate-950 to-slate-950">
+      <section id="about" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold tracking-wide uppercase">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide uppercase backdrop-blur-md">
                 <Sparkles className="w-4 h-4" /> About Me & Qualifications
               </div>
               
@@ -159,15 +159,15 @@ export default function MiddleBody() {
               </p>
 
               {/* Education Card */}
-              <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl backdrop-blur-sm shadow-lg hover:border-slate-700 transition-all duration-300">
+              <div className="bg-slate-900/40 border border-slate-800/80 p-5 sm:p-6 rounded-2xl backdrop-blur-md shadow-lg hover:border-slate-700/80 transition-all duration-300 transform-gpu">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/20 flex-shrink-0">
+                  <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/30 flex-shrink-0">
                     <GraduationCap className="w-7 h-7" />
                   </div>
                   <div>
                     <h2 className="text-lg font-bold text-white">B.TECH in Mechanical Engineering</h2>
                     <p className="text-slate-400 text-sm mt-1">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
-                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1 rounded-lg border border-slate-700/60">
+                    <div className="mt-3 inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-700/60 backdrop-blur-sm">
                       <MapPin className="w-3.5 h-3.5 text-blue-400" /> Kozhikode, Kerala, India
                     </div>
                   </div>
@@ -178,8 +178,8 @@ export default function MiddleBody() {
             {/* Right Profile Image */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group w-full max-w-sm sm:max-w-md">
-                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 transform-gpu"></div>
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border-2 border-slate-700/80 bg-slate-900 shadow-2xl">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 to-indigo-600/40 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-500 transform-gpu"></div>
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900/40 backdrop-blur-sm shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
                     alt="Adarsh Raj S - Web Developer Profile Image"
@@ -188,7 +188,7 @@ export default function MiddleBody() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -197,12 +197,12 @@ export default function MiddleBody() {
         </div>
       </section>
 
-      {/* 2. EXPERIENCE SECTION (FULL WIDTH RESPONSIVE TIMELINE) */}
-      <section id="experience" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-950">
+      {/* 2. EXPERIENCE SECTION */}
+      <section id="experience" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
+          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
               <Briefcase className="w-3.5 h-3.5" /> Professional History
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -213,16 +213,16 @@ export default function MiddleBody() {
             </p>
           </div>
 
-          {/* Full Width Container */}
+          {/* Timeline Container */}
           <div className="w-full relative pl-6 sm:pl-10">
-            {/* Timeline Vertical Track Line */}
-            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500/50 to-slate-800"></div>
+            {/* Timeline Vertical Line */}
+            <div className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500/50 to-slate-800/40"></div>
 
-            <div className="space-y-8 sm:space-y-10">
+            <div className="space-y-6 sm:space-y-8">
               {experiences.map((exp, idx) => (
                 <article key={idx} className="relative group pl-4 sm:pl-6">
                   
-                  {/* Timeline Node Bullet Marker */}
+                  {/* Timeline Bullet Marker */}
                   <div className="absolute -left-[19px] sm:-left-[29px] top-6 -translate-y-1/2 flex items-center justify-center z-10">
                     <span className="relative flex h-5 w-5 items-center justify-center">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-30"></span>
@@ -230,18 +230,18 @@ export default function MiddleBody() {
                     </span>
                   </div>
 
-                  {/* Full Width Card Content Box */}
-                  <div className="w-full bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-slate-700 hover:bg-slate-900/90 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/30 transform-gpu">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  {/* Card Content Box */}
+                  <div className="w-full bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 backdrop-blur-md hover:border-slate-700/80 hover:bg-slate-900/60 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-950/20 transform-gpu">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                       <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
                         {exp.role}
                       </h3>
                       
                       <div className="flex flex-wrap items-center gap-2.5">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-lg backdrop-blur-sm">
                           <Calendar className="w-3.5 h-3.5" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/80 border border-slate-700/60 px-3 py-1.5 rounded-lg">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/60 border border-slate-700/60 px-3 py-1.5 rounded-lg backdrop-blur-sm">
                           <Briefcase className="w-3.5 h-3.5 text-slate-400" /> {exp.company}
                         </span>
                       </div>
@@ -261,11 +261,11 @@ export default function MiddleBody() {
       </section>
 
       {/* 3. TECHNICAL SKILLS & ECOSYSTEM */}
-      <section id="skills" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-900/40">
+      <section id="skills" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
+          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
               <Code className="w-3.5 h-3.5" /> Capabilities
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -276,24 +276,24 @@ export default function MiddleBody() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
             {categories.map((cat, idx) => {
               const Icon = cat.icon;
               const spanClass = idx < 3 ? "lg:col-span-2" : "lg:col-span-3";
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-900/80 border border-slate-800/90 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300 hover:-translate-y-1 transform-gpu ${spanClass}`}
+                  className={`bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-md hover:border-slate-700/80 transition-all duration-300 hover:-translate-y-1 transform-gpu ${spanClass}`}
                 >
-                  <div className="flex items-center gap-3.5 mb-5">
-                    <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/20">
+                  <div className="flex items-center gap-3.5 mb-4">
+                    <div className="p-3 bg-blue-600/20 text-blue-400 rounded-xl border border-blue-500/30 flex-shrink-0">
                       <Icon className="w-6 h-6" />
                     </div>
                     <h3 className="text-lg font-bold text-white">{cat.name}</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-slate-800/90 hover:bg-slate-800 text-slate-300 text-xs rounded-lg border border-slate-700/70 font-medium transition-colors">
+                      <span key={i} className="px-3 py-1.5 bg-slate-800/50 hover:bg-slate-800/80 text-slate-300 text-xs rounded-lg border border-slate-700/60 font-medium transition-colors backdrop-blur-sm">
                         {item}
                       </span>
                     ))}
@@ -307,11 +307,11 @@ export default function MiddleBody() {
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
-      <section id="projects" className="w-full py-16 lg:py-24 border-b border-slate-800/80 bg-slate-950">
+      <section id="projects" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase">
+          <div className="max-w-3xl mx-auto text-center mb-10 space-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase backdrop-blur-md">
               <Globe className="w-3.5 h-3.5" /> Portfolio
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -322,9 +322,9 @@ export default function MiddleBody() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-slate-700 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 group transform-gpu">
+              <article key={idx} className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 sm:p-8 flex flex-col justify-between backdrop-blur-md hover:border-slate-700/80 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-900/20 group transform-gpu">
                 <div>
                   <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
                     {proj.title}
@@ -332,7 +332,7 @@ export default function MiddleBody() {
                   
                   <div className="flex flex-wrap gap-2 my-4">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-medium">
+                      <span key={i} className="px-2.5 py-1 text-xs bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md font-medium backdrop-blur-sm">
                         {t}
                       </span>
                     ))}
@@ -343,7 +343,7 @@ export default function MiddleBody() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-5 pt-5 border-t border-slate-800/90">
+                <div className="flex items-center gap-5 pt-4 border-t border-slate-800/60">
                   <a
                     href={proj.live}
                     target="_blank"
@@ -369,10 +369,10 @@ export default function MiddleBody() {
       </section>
 
       {/* 5. CONTACT SECTION */}
-      <section id="contact" className="w-full py-16 lg:py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+      <section id="contact" className="w-full py-12 lg:py-16 bg-transparent">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           
-          <div className="max-w-2xl mx-auto space-y-3">
+          <div className="max-w-2xl mx-auto space-y-2">
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
               Let&apos;s Build Something Extraordinary
             </h2>
@@ -381,12 +381,12 @@ export default function MiddleBody() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-2">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-blue-500/50 hover:scale-[1.03] transition-all duration-300 shadow-lg transform-gpu"
+              className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-blue-500/50 hover:scale-[1.02] transition-all duration-300 shadow-lg transform-gpu"
             >
-              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400">
+              <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 border border-blue-500/20">
                 <Mail className="w-6 h-6" />
               </div>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Email</span>
@@ -395,17 +395,17 @@ export default function MiddleBody() {
 
             <a 
               href="tel:+918075551892" 
-              className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-emerald-500/50 hover:scale-[1.03] transition-all duration-300 shadow-lg transform-gpu"
+              className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md hover:border-emerald-500/50 hover:scale-[1.02] transition-all duration-300 shadow-lg transform-gpu"
             >
-              <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400">
+              <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20">
                 <Phone className="w-6 h-6" />
               </div>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Call / WhatsApp</span>
               <span className="text-sm font-medium text-white">+91 8075551892</span>
             </a>
 
-            <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl flex flex-col items-center gap-3 shadow-lg">
-              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400">
+            <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl flex flex-col items-center gap-3 backdrop-blur-md shadow-lg transform-gpu">
+              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
                 <MapPin className="w-6 h-6" />
               </div>
               <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold">Location</span>
