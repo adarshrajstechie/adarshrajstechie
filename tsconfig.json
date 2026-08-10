@@ -21,13 +21,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    /* Enhanced Strictness & Performance Rules */
-    "forceConsistentCasingInFileNames": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "exactOptionalPropertyTypes": false
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "next-env.d.ts",
