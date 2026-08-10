@@ -20,7 +20,7 @@ export default function HeroSection() {
         Your browser does not support the video tag.
       </video>
 
-      {/* Modern High-Performance Gradient Overlay (Higher Video Visibility) */}
+      {/* Modern High-Performance Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/90 z-10 backdrop-blur-[1px]" />
 
       {/* Hero Content Container */}
@@ -42,7 +42,7 @@ export default function HeroSection() {
             ADARSH RAJ S
           </span>
           <br />
-          Building Scalable &amp; Interactive Web <span className="underline decoration-blue-500/40 underline-offset-8">Applications</span>
+          Building Scalable &amp; Interactive Web Applications
         </h1>
 
         {/* Subtitle for SEO & AI Crawler Context */}

@@ -14,8 +14,7 @@ import {
   ExternalLink,
   Calendar,
   Sparkles,
-  ArrowUpRight,
-  CheckCircle2
+  ArrowUpRight
 } from "lucide-react";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -164,38 +163,37 @@ export default function MiddleBody() {
       />
 
       {/* 1. ABOUT SECTION */}
-      <section id="about" className="w-full py-20 lg:py-32 relative overflow-hidden">
-        {/* Hardware-accelerated background light glows */}
-        <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-cyan-600/10 blur-[120px] pointer-events-none rounded-full transform-gpu" />
+      <section id="about" className="w-full py-12 lg:py-20 relative overflow-hidden contain-paint">
+        <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-cyan-600/10 blur-[120px] pointer-events-none rounded-full transform-gpu will-change-transform" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
-                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" /> 
+            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm backdrop-blur-md">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse shrink-0" /> 
                 <span>About Me &amp; Qualifications</span>
               </div>
               
-              <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.1]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
                 Full-Stack Web Developer &amp; <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">Digital Engineer</span>
               </h1>
               
-              <p className="text-slate-300 text-base sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
                 Specialized in building ultra-fast <strong className="text-white font-semibold">Next.js</strong> web applications, custom <strong className="text-white font-semibold">PHP</strong> backend systems, and technical SEO architectures. I turn ambitious ideas into high-converting, GTmetrix Grade-A platforms across India &amp; UAE.
               </p>
 
-              <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-2xl shadow-xl hover:border-cyan-500/30 transition-colors duration-200">
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5">
-                  <div className="p-3.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
-                    <GraduationCap className="w-8 h-8" />
+              <div className="bg-slate-900/80 border border-slate-800/90 p-5 sm:p-6 rounded-2xl shadow-xl hover:border-cyan-500/30 transition-all duration-300 backdrop-blur-sm">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
+                  <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
+                    <GraduationCap className="w-7 h-7" />
                   </div>
-                  <div className="space-y-1.5">
-                    <h2 className="text-xl font-bold text-white">B.TECH in Mechanical Engineering</h2>
-                    <p className="text-slate-400 text-sm font-medium">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+                  <div className="space-y-1">
+                    <h2 className="text-lg sm:text-xl font-bold text-white">B.TECH in Mechanical Engineering</h2>
+                    <p className="text-slate-400 text-xs sm:text-sm font-medium">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
                     <div className="pt-2">
-                      <span className="inline-flex items-center gap-2 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700/80">
-                        <MapPin className="w-4 h-4 text-cyan-400" /> Kozhikode, Kerala, India
+                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1 rounded-lg border border-slate-700/80">
+                        <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" /> Kozhikode, Kerala, India
                       </span>
                     </div>
                   </div>
@@ -204,15 +202,15 @@ export default function MiddleBody() {
             </div>
 
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-xs sm:max-w-sm lg:max-w-md">
-                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-25 group-hover:opacity-50 transition duration-300 transform-gpu" />
+              <div className="relative group w-full max-w-[280px] sm:max-w-xs lg:max-w-sm">
+                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-25 group-hover:opacity-40 transition-opacity duration-300 transform-gpu" />
                 <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
                     alt="Adarsh Raj S - Web Developer Profile"
                     fill
                     priority
-                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 384px, 416px"
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 384px"
                     className="object-cover object-center transform-gpu transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
@@ -224,17 +222,17 @@ export default function MiddleBody() {
       </section>
 
       {/* 2. EXPERIENCE SECTION */}
-      <section id="experience" className="w-full py-20 lg:py-28 relative">
+      <section id="experience" className="w-full py-12 lg:py-20 relative contain-paint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
-              <Briefcase className="w-4 h-4" /> <span>Professional History</span>
+          <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+              <Briefcase className="w-3.5 h-3.5 shrink-0" /> <span>Professional History</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Work Experience Journey
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg">
+            <p className="text-slate-400 text-sm sm:text-base">
               Hands-on engineering, performance tuning, and digital marketing results.
             </p>
           </div>
@@ -242,31 +240,31 @@ export default function MiddleBody() {
           <div className="w-full relative pl-4 sm:pl-8 lg:pl-10 max-w-4xl mx-auto">
             <div aria-hidden="true" className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-transparent" />
 
-            <div className="space-y-10">
+            <div className="space-y-6 sm:space-y-8">
               {experiences.map((exp, idx) => (
                 <article key={idx} className="relative group pl-6 sm:pl-8">
                   
-                  <div className="absolute -left-[19px] sm:-left-[27px] top-7 -translate-y-1/2 flex items-center justify-center z-10">
-                    <span className="relative inline-flex rounded-full h-4 w-4 bg-slate-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform duration-200" />
+                  <div className="absolute -left-[19px] sm:-left-[27px] top-6 -translate-y-1/2 flex items-center justify-center z-10">
+                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-slate-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform duration-200" />
                   </div>
 
-                  <div className="w-full bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl hover:border-slate-700 transition-colors duration-200">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
+                  <div className="w-full bg-slate-900/90 border border-slate-800/90 rounded-2xl p-5 sm:p-7 shadow-xl hover:border-slate-700/90 transition-all duration-200">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                      <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                         {exp.role}
                       </h3>
                       
-                      <div className="flex flex-wrap items-center gap-2.5 shrink-0">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1.5 rounded-lg">
-                          <Calendar className="w-3.5 h-3.5 text-cyan-400" /> {exp.period}
+                      <div className="flex flex-wrap items-center gap-2 shrink-0">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-lg">
+                          <Calendar className="w-3 h-3 text-cyan-400 shrink-0" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                          <Briefcase className="w-3.5 h-3.5 text-slate-400" /> {exp.company}
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700/80">
+                          <Briefcase className="w-3 h-3 text-slate-400 shrink-0" /> {exp.company}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>
@@ -280,39 +278,39 @@ export default function MiddleBody() {
       </section>
 
       {/* 3. TECHNICAL SKILLS */}
-      <section id="skills" className="w-full py-20 lg:py-28 relative">
+      <section id="skills" className="w-full py-12 lg:py-20 relative contain-paint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
-              <Code className="w-4 h-4" /> <span>Capabilities</span>
+          <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+              <Code className="w-3.5 h-3.5 shrink-0" /> <span>Capabilities</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Technical Skills &amp; Ecosystem
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg">
+            <p className="text-slate-400 text-sm sm:text-base">
               Tech stack, database systems, digital growth tools, and AI workflows.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5">
             {categories.map((cat, idx) => {
               const Icon = cat.icon;
               const spanClass = idx < 3 ? "lg:col-span-2" : "lg:col-span-3";
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl hover:border-slate-700 transition-colors duration-200 ${spanClass}`}
+                  className={`bg-slate-900/90 border border-slate-800/90 rounded-2xl p-5 sm:p-6 shadow-xl hover:border-slate-700/90 transition-all duration-200 ${spanClass}`}
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center gap-3.5 mb-4">
+                    <div className="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white">{cat.name}</h3>
+                    <h3 className="text-base sm:text-lg font-bold text-white">{cat.name}</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-slate-800/90 text-slate-300 text-xs font-medium rounded-lg border border-slate-700/80 hover:text-white transition-colors duration-150">
+                      <span key={i} className="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs font-medium rounded-lg border border-slate-700/80 hover:text-white transition-colors duration-150">
                         {item}
                       </span>
                     ))}
@@ -326,61 +324,61 @@ export default function MiddleBody() {
       </section>
 
       {/* 4. FEATURED PROJECTS SECTION */}
-      <section id="projects" className="w-full py-20 lg:py-28 relative">
+      <section id="projects" className="w-full py-12 lg:py-20 relative contain-paint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm">
-              <Globe className="w-4 h-4" /> <span>Portfolio</span>
+          <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+              <Globe className="w-3.5 h-3.5 shrink-0" /> <span>Portfolio</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Featured Client Projects
             </h2>
-            <p className="text-slate-400 text-base sm:text-lg">
+            <p className="text-slate-400 text-sm sm:text-base">
               Deployments across Next.js, PHP, and AI-integrated web setups.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {projects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-900/90 border border-slate-800 rounded-2xl p-7 sm:p-8 flex flex-col justify-between hover:border-cyan-500/40 transition-colors duration-200 shadow-xl group">
+              <article key={idx} className="bg-slate-900/90 border border-slate-800/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-200 shadow-xl group">
                 <div>
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
+                  <div className="flex items-start justify-between gap-4 mb-2.5">
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                       {proj.title}
                     </h3>
-                    <ArrowUpRight className="w-6 h-6 text-slate-500 group-hover:text-cyan-400 transition-colors duration-200 shrink-0" />
+                    <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-cyan-400 transition-colors duration-200 shrink-0" />
                   </div>
                   
-                  <div className="flex flex-wrap gap-2 my-4">
+                  <div className="flex flex-wrap gap-1.5 my-3">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2.5 py-1 text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 rounded-md">
+                      <span key={i} className="px-2 py-0.5 text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 rounded-md">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
                     {proj.desc}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-6 pt-5 border-t border-slate-800/80">
+                <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-slate-800/80">
                   <a
                     href={proj.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-150"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-cyan-400 hover:text-cyan-300 transition-colors duration-150"
                   >
-                    <ExternalLink className="w-4 h-4" /> Live Demo
+                    <ExternalLink className="w-3.5 h-3.5 shrink-0" /> Live Demo
                   </a>
                   <a
                     href={proj.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-150"
+                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-150"
                   >
-                    <GithubIcon className="w-4 h-4" /> Source Code
+                    <GithubIcon className="w-3.5 h-3.5 shrink-0" /> Source Code
                   </a>
                 </div>
               </article>
@@ -391,59 +389,57 @@ export default function MiddleBody() {
       </section>
 
       {/* 5. CONTACT SECTION */}
-      <section id="contact" className="w-full py-20 lg:py-32 relative">
-        <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-600/10 blur-[140px] pointer-events-none rounded-full transform-gpu" />
+      <section id="contact" className="w-full py-12 lg:py-20 relative contain-paint">
+        <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-600/10 blur-[140px] pointer-events-none rounded-full transform-gpu will-change-transform" />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          <div className="max-w-2xl mx-auto space-y-3">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Let&apos;s Build Something Extraordinary
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg">
+            <p className="text-slate-300 text-sm sm:text-base">
               Have a web application, digital campaign, or GTmetrix speed optimization task? Let&apos;s connect.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <address className="not-italic grid grid-cols-1 sm:grid-cols-3 gap-5">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 hover:border-cyan-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
+              className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-cyan-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
             >
-              <div className="p-3.5 bg-cyan-500/10 rounded-xl text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform duration-200">
-                <Mail className="w-6 h-6" />
+              <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform duration-200 shrink-0">
+                <Mail className="w-5 h-5" />
               </div>
-              <div className="space-y-1 max-w-full">
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Email</span>
-                <span className="text-sm font-medium text-white truncate block">adarshrajstechie@gmail.com</span>
+              <div className="space-y-0.5 max-w-full">
+                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Email</span>
+                <span className="text-xs sm:text-sm font-medium text-white truncate block">adarshrajstechie@gmail.com</span>
               </div>
             </a>
 
             <a 
               href="tel:+918075551892" 
-              className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 hover:border-emerald-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
+              className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-emerald-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
             >
-              <div className="p-3.5 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform duration-200">
-                <Phone className="w-6 h-6" />
+              <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform duration-200 shrink-0">
+                <Phone className="w-5 h-5" />
               </div>
-              <div className="space-y-1">
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Call / WhatsApp</span>
-                <span className="text-sm font-medium text-white block">+91 8075551892</span>
+              <div className="space-y-0.5">
+                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Call / WhatsApp</span>
+                <span className="text-xs sm:text-sm font-medium text-white block">+91 8075551892</span>
               </div>
             </a>
 
-            <div className="bg-slate-900/90 border border-slate-800 p-6 sm:p-8 rounded-2xl flex flex-col items-center gap-4 shadow-xl">
-              <div className="p-3.5 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20">
-                <MapPin className="w-6 h-6" />
+            <div className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 shadow-xl">
+              <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20 shrink-0">
+                <MapPin className="w-5 h-5" />
               </div>
-              <div className="space-y-1">
-                <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Location</span>
-                <span className="text-sm font-medium text-white block">Kozhikode, Kerala, India</span>
+              <div className="space-y-0.5">
+                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Location</span>
+                <span className="text-xs sm:text-sm font-medium text-white block">Kozhikode, Kerala, India</span>
               </div>
             </div>
-          </div>
-
-
+          </address>
 
         </div>
       </section>
