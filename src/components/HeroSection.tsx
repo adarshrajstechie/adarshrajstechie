@@ -16,7 +16,7 @@ export default function HeroSection() {
         poster="/bg-video-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none transform translate-z-0 will-change-transform opacity-90"
       >
-        <source src="/hero-background-video-1.mp4" type="video/mp4" />
+        <source src="/hero-background-video-5.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
