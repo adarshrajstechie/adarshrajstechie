@@ -16,7 +16,7 @@ export default function HeroSection() {
         poster="/bg-video-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none transform translate-z-0 will-change-transform opacity-90"
       >
-        <source src="/hero-background-video-5.mp4" type="video/mp4" />
+        <source src="/hero-background-video-4.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -45,10 +45,10 @@ export default function HeroSection() {
           Building Scalable &amp; Interactive Web Applications
         </h1>
 
-        {/* Subtitle for SEO & AI Crawler Context */}
+        {/* Subtitle with High Readability & Contrast */}
         <p 
           itemProp="description"
-          className="max-w-xl text-slate-300 text-sm sm:text-base md:text-lg font-normal leading-relaxed tracking-normal"
+          className="max-w-xl text-slate-100/90 text-sm sm:text-base md:text-lg font-medium leading-relaxed tracking-normal drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
         >
           Transforming complex ideas into clean, maintainable code and seamless user interfaces from backend architecture to frontend interaction.
         </p>
