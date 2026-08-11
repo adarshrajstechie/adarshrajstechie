@@ -214,7 +214,6 @@ export default function Header() {
 
         <div className="pt-6 border-t border-slate-800/80 space-y-3">
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400 px-1">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
             Available for hire
           </div>
           <Link
