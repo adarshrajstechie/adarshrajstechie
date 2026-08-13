@@ -3,6 +3,7 @@ import React from "react";
 export default function HeroSection() {
   return (
     <section 
+      id="home"
       aria-label="Hero Section" 
       className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-slate-950 transform-gpu"
     >
