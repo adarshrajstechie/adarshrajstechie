@@ -16,7 +16,8 @@ import {
   Sparkles,
   ArrowUpRight,
   Share2,
-  BarChart
+  BarChart,
+  Truck
 } from "lucide-react";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -74,10 +75,10 @@ export default function MiddleBody() {
       github: "https://github.com/adarshrajstechie/4bizinternational_company_website_next.js.git"
     },
     {
-      title: "Emarald Ace Corporate MEP Platform",
+      title: "Emrald Ace Corporate MEP Platform",
       tech: ["Next.js", "React", "Tailwind CSS"],
       desc: "High-performance web app for UAE-based MEP and facility management enterprise, showcasing HVAC, annual maintenance contracts (AMC), and civil engineering modules.",
-      live: "https://emaraldace-company-website-next-js.vercel.app/",
+      live: "https://www.emraldace.ae/",
       github: "https://github.com/adarshrajstechie/emaraldace_company_website_next.js.git"
     },
     {
@@ -93,6 +94,13 @@ export default function MiddleBody() {
       desc: "Custom home interior solutions platform built with mobile-first UI, secure form validation, Core Web Vitals optimization, and GTmetrix Grade-A speed.",
       live: "https://theyyampattilgcc.com/",
       github: "https://github.com/adarshrajstechie/theyyampattil_gcc_php-html-website.git"
+    },
+    {
+      title: "Logistics and Relocation Service Website",
+      tech: ["HTML5", "CSS3", "JavaScript", "PHP"],
+      desc: "Modern web presence for a UAE relocation and logistics enterprise (Fastlibra Mover and Packer). Designed clean, fast-loading user interfaces with interactive UI components, clear service tiers, mobile-first layouts, and direct lead channels.",
+      live: "https://fastlibramoverandpacker.com/",
+      github: ""
     }
   ];
 
@@ -192,7 +200,7 @@ export default function MiddleBody() {
   };
 
   return (
-    <main className="w-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-indigo-950/40 to-slate-950 text-slate-100 overflow-x-hidden antialiased selection:bg-cyan-500 selection:text-slate-950">
+    <main className="w-full bg-slate-950 text-slate-100 overflow-x-hidden antialiased selection:bg-cyan-500 selection:text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
@@ -200,13 +208,13 @@ export default function MiddleBody() {
 
       {/* HERO / ABOUT SECTION */}
       <section id="about" className="w-full py-12 lg:py-20 relative overflow-hidden contain-paint">
-        <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-cyan-600/10 blur-[120px] pointer-events-none rounded-full transform-gpu will-change-transform" />
+        <div aria-hidden="true" className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-cyan-600/10 blur-[120px] pointer-events-none rounded-full transform-gpu" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse shrink-0" /> 
                 <span>Web Developer &amp; Digital Engineer</span>
               </div>
@@ -218,21 +226,21 @@ export default function MiddleBody() {
                 </span>
               </h1>
               
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+              <p className="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
                 Dynamic and results-driven Web Developer with extensive experience building, maintaining, and optimizing high-performance websites for international clients across the UAE and India. Adept at combining Next.js, React, PHP, Node.js, and WordPress with advanced vibe coding AI workflows.
               </p>
 
               {/* Education Card */}
-              <div className="bg-slate-900/80 border border-slate-800/90 p-5 sm:p-6 rounded-2xl shadow-xl hover:border-cyan-500/30 transition-all duration-300 backdrop-blur-sm">
+              <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl shadow-xl hover:border-cyan-500/30 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
                   <div className="p-3 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
                     <GraduationCap className="w-7 h-7" />
                   </div>
                   <div className="space-y-1">
                     <h2 className="text-lg sm:text-xl font-bold text-white">B.TECH in Mechanical Engineering</h2>
-                    <p className="text-slate-400 text-xs sm:text-sm font-medium">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
+                    <p className="text-slate-300 text-xs sm:text-sm font-medium">LBS College Of Engineering Kasaragod / KTU (2016 - 2020)</p>
                     <div className="pt-2 flex flex-wrap justify-center sm:justify-start gap-2">
-                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-300 font-medium bg-slate-800/90 px-3 py-1 rounded-lg border border-slate-700/80">
+                      <span className="inline-flex items-center gap-1.5 text-xs text-slate-200 font-medium bg-slate-800 px-3 py-1 rounded-lg border border-slate-700">
                         <MapPin className="w-3.5 h-3.5 text-cyan-400 shrink-0" /> Kozhikode, Kerala, India
                       </span>
                     </div>
@@ -254,7 +262,7 @@ export default function MiddleBody() {
                   href="https://www.linkedin.com/in/adarshrajstechie" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 border border-sky-500/30 text-sky-300 font-medium text-sm transition-all duration-200 shadow-md"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-950 hover:bg-sky-900 border border-sky-500/40 text-sky-200 font-medium text-sm transition-all duration-200 shadow-md"
                 >
                   <LinkedinIcon className="w-4 h-4 text-sky-400" /> LinkedIn
                 </a>
@@ -264,7 +272,7 @@ export default function MiddleBody() {
             {/* Profile Image Column */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end">
               <div className="relative group w-full max-w-[280px] sm:max-w-xs lg:max-w-sm">
-                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-25 group-hover:opacity-40 transition-opacity duration-300 transform-gpu" />
+                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300 transform-gpu" />
                 <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
                   <Image
                     src="/adarsh_raj_s.jpeg"
@@ -282,23 +290,22 @@ export default function MiddleBody() {
         </div>
       </section>
 
-      {/* EXPERIENCE SECTION - EXPANDED WIDTH */}
+      {/* EXPERIENCE SECTION */}
       <section id="experience" className="w-full py-12 lg:py-20 relative contain-paint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
               <Briefcase className="w-3.5 h-3.5 shrink-0" /> <span>Professional Career</span>
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Work Experience Journey
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base">
+            <p className="text-slate-300 text-sm sm:text-base">
               Hands-on engineering, website crash solutions, GTmetrix performance tuning, and growth marketing.
             </p>
           </div>
 
-          {/* Expanded max-w to max-w-6xl for cleaner edge alignment */}
           <div className="w-full relative pl-4 sm:pl-8 lg:pl-10 max-w-6xl 2xl:max-w-7xl mx-auto">
             <div aria-hidden="true" className="absolute left-2.5 sm:left-4 top-3 bottom-3 w-0.5 bg-gradient-to-b from-cyan-500 via-indigo-500 to-transparent" />
 
@@ -310,23 +317,23 @@ export default function MiddleBody() {
                     <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-slate-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform duration-200" />
                   </div>
 
-                  <div className="w-full bg-slate-900/90 border border-slate-800/90 rounded-2xl p-5 sm:p-7 shadow-xl hover:border-slate-700/90 transition-all duration-200">
+                  <div className="w-full bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 shadow-xl hover:border-slate-700 transition-all duration-200">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                       <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                         {exp.role}
                       </h3>
                       
                       <div className="flex flex-wrap items-center gap-2 shrink-0">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 rounded-lg">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-300 bg-cyan-950/80 border border-cyan-500/30 px-2.5 py-1 rounded-lg">
                           <Calendar className="w-3 h-3 text-cyan-400 shrink-0" /> {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700/80">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-200 bg-slate-800 px-2.5 py-1 rounded-lg border border-slate-700">
                           <Briefcase className="w-3 h-3 text-slate-400 shrink-0" /> {exp.company}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
                       {exp.desc}
                     </p>
                   </div>
@@ -344,13 +351,13 @@ export default function MiddleBody() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
               <Code className="w-3.5 h-3.5 shrink-0" /> <span>Full Competencies</span>
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Skills, AI &amp; Digital Ecosystem
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base">
+            <p className="text-slate-300 text-sm sm:text-base">
               Tech stack, AI vibe coding, cloud deployment, monetization, and growth tools.
             </p>
           </div>
@@ -362,7 +369,7 @@ export default function MiddleBody() {
               return (
                 <div 
                   key={idx} 
-                  className={`bg-slate-900/90 border border-slate-800/90 rounded-2xl p-5 sm:p-6 shadow-xl hover:border-slate-700/90 transition-all duration-200 ${spanClass}`}
+                  className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-xl hover:border-slate-700 transition-all duration-200 ${spanClass}`}
                 >
                   <div className="flex items-center gap-3.5 mb-4">
                     <div className="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20 shrink-0">
@@ -372,7 +379,7 @@ export default function MiddleBody() {
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {cat.items.map((item, i) => (
-                      <span key={i} className="px-2.5 py-1 bg-slate-800/90 text-slate-300 text-xs font-medium rounded-lg border border-slate-700/80 hover:text-white transition-colors duration-150">
+                      <span key={i} className="px-2.5 py-1 bg-slate-800 text-slate-200 text-xs font-medium rounded-lg border border-slate-700 hover:text-white transition-colors duration-150">
                         {item}
                       </span>
                     ))}
@@ -390,42 +397,42 @@ export default function MiddleBody() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="max-w-3xl mx-auto text-center mb-10 lg:mb-14 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-cyan-500/30 text-cyan-400 text-xs font-semibold tracking-wide uppercase shadow-sm">
               <Globe className="w-3.5 h-3.5 shrink-0" /> <span>Portfolio</span>
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
               Featured Client Engineering
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base">
-              Custom applications built with Next.js, React, Node.js, PHP, and AI API integrations.
+            <p className="text-slate-300 text-sm sm:text-base">
+              Custom applications built with Next.js, React, Node.js, PHP, HTML5, and AI API integrations.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredProjects.map((proj, idx) => (
-              <article key={idx} className="bg-slate-900/90 border border-slate-800/90 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-200 shadow-xl group">
+              <article key={idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-500/40 transition-all duration-200 shadow-xl group">
                 <div>
                   <div className="flex items-start justify-between gap-4 mb-2.5">
                     <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-200">
                       {proj.title}
                     </h3>
-                    <ArrowUpRight className="w-5 h-5 text-slate-500 group-hover:text-cyan-400 transition-colors duration-200 shrink-0" />
+                    <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-cyan-400 transition-colors duration-200 shrink-0" />
                   </div>
                   
                   <div className="flex flex-wrap gap-1.5 my-3">
                     {proj.tech.map((t, i) => (
-                      <span key={i} className="px-2 py-0.5 text-xs font-semibold bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 rounded-md">
+                      <span key={i} className="px-2 py-0.5 text-xs font-semibold bg-cyan-950 text-cyan-300 border border-cyan-500/30 rounded-md">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed mb-6">
                     {proj.desc}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-slate-800/80">
+                <div className="flex flex-wrap items-center gap-5 pt-4 border-t border-slate-800">
                   <a
                     href={proj.live}
                     target="_blank"
@@ -434,14 +441,16 @@ export default function MiddleBody() {
                   >
                     <ExternalLink className="w-3.5 h-3.5 shrink-0" /> Live Web Application
                   </a>
-                  <a
-                    href={proj.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-150"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5 shrink-0" /> Source Repository
-                  </a>
+                  {proj.github && (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-colors duration-150"
+                    >
+                      <GithubIcon className="w-3.5 h-3.5 shrink-0" /> Source Repository
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -451,13 +460,13 @@ export default function MiddleBody() {
       </section>
 
       {/* WORDPRESS & CMS CLIENT BUILDS */}
-      <section id="wordpress-projects" className="w-full py-12 lg:py-16 relative contain-paint bg-slate-900/40 border-y border-slate-800/60">
+      <section id="wordpress-projects" className="w-full py-12 lg:py-16 relative contain-paint bg-slate-900/60 border-y border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-8 space-y-2">
             <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
               WordPress &amp; Enterprise Webmaster Builds
             </h3>
-            <p className="text-slate-400 text-xs sm:text-sm">
+            <p className="text-slate-300 text-xs sm:text-sm">
               End-to-end development, Gemini AI Chatbot integrations, technical SEO, and speed optimization.
             </p>
           </div>
@@ -469,12 +478,12 @@ export default function MiddleBody() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-slate-900/90 border border-slate-800/90 rounded-xl flex items-center justify-between hover:border-cyan-500/30 transition-colors duration-150 group"
+                className="p-4 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-between hover:border-cyan-500/30 transition-colors duration-150 group"
               >
-                <span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
+                <span className="text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-cyan-400 transition-colors">
                   {item.name}
                 </span>
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 shrink-0 ml-2" />
+                <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 shrink-0 ml-2" />
               </a>
             ))}
           </div>
@@ -488,7 +497,7 @@ export default function MiddleBody() {
             <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight">
               E-Commerce, Publishing &amp; Specialized Portals
             </h3>
-            <p className="text-slate-400 text-xs sm:text-sm">
+            <p className="text-slate-300 text-xs sm:text-sm">
               News platforms, real estate portals, hospitality systems, and Shopify deployments.
             </p>
           </div>
@@ -500,19 +509,19 @@ export default function MiddleBody() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 bg-slate-900/90 border border-slate-800/90 rounded-xl flex flex-col justify-between hover:border-indigo-500/30 transition-colors duration-150 group"
+                className="p-4 bg-slate-900 border border-slate-800 rounded-xl flex flex-col justify-between hover:border-indigo-500/30 transition-colors duration-150 group"
               >
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-wider text-indigo-400 block mb-1">
                     {item.category}
                   </span>
-                  <h4 className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-indigo-300 transition-colors">
+                  <h4 className="text-xs sm:text-sm font-semibold text-slate-100 group-hover:text-indigo-300 transition-colors">
                     {item.name}
                   </h4>
                 </div>
-                <div className="pt-3 flex items-center gap-1 text-[11px] font-medium text-slate-400 group-hover:text-slate-200">
+                <div className="pt-3 flex items-center gap-1 text-[11px] font-medium text-slate-300 group-hover:text-slate-100">
                   <span>Visit Platform</span>
-                  <ExternalLink className="w-3 h-3 text-slate-500 group-hover:text-slate-200 shrink-0" />
+                  <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-slate-100 shrink-0" />
                 </div>
               </a>
             ))}
@@ -522,7 +531,7 @@ export default function MiddleBody() {
 
       {/* CONTACT SECTION */}
       <section id="contact" className="w-full py-12 lg:py-20 relative contain-paint">
-        <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-600/10 blur-[140px] pointer-events-none rounded-full transform-gpu will-change-transform" />
+        <div aria-hidden="true" className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-indigo-600/10 blur-[140px] pointer-events-none rounded-full transform-gpu" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
           
@@ -530,7 +539,7 @@ export default function MiddleBody() {
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Let&apos;s Build Something Extraordinary
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
+            <p className="text-slate-200 text-sm sm:text-base">
               Have a web application, digital campaign, or GTmetrix speed optimization task? Let&apos;s connect.
             </p>
           </div>
@@ -538,34 +547,34 @@ export default function MiddleBody() {
           <address className="not-italic grid grid-cols-1 sm:grid-cols-3 gap-5">
             <a 
               href="mailto:adarshrajstechie@gmail.com" 
-              className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-cyan-500/50 hover:bg-slate-900 transition-all duration-200 shadow-xl group"
+              className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 hover:border-cyan-500/50 transition-all duration-200 shadow-xl group"
             >
               <div className="p-3 bg-cyan-500/10 rounded-xl text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform duration-200 shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div className="space-y-0.5 max-w-full">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Email</span>
+                <span className="text-[10px] text-slate-300 uppercase tracking-wider font-semibold block">Email</span>
                 <span className="text-xs sm:text-sm font-medium text-white truncate block">adarshrajstechie@gmail.com</span>
               </div>
             </a>
 
-            <div className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 shadow-xl hover:border-emerald-500/50 transition-all duration-200">
+            <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 shadow-xl hover:border-emerald-500/50 transition-all duration-200">
               <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400 border border-emerald-500/20 shrink-0">
                 <Phone className="w-5 h-5" />
               </div>
               <div className="space-y-0.5">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Call / WhatsApp</span>
+                <span className="text-[10px] text-slate-300 uppercase tracking-wider font-semibold block">Call / WhatsApp</span>
                 <a href="tel:+918075551892" className="text-xs sm:text-sm font-medium text-white block hover:text-emerald-400 transition-colors">+91 8075551892</a>
-                <a href="tel:+919496081054" className="text-xs sm:text-sm font-medium text-slate-300 block hover:text-emerald-400 transition-colors">+91 9496081054</a>
+                <a href="tel:+919496081054" className="text-xs sm:text-sm font-medium text-slate-200 block hover:text-emerald-400 transition-colors">+91 9496081054</a>
               </div>
             </div>
 
-            <div className="bg-slate-900/90 border border-slate-800/90 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 shadow-xl">
+            <div className="bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col items-center gap-3 shadow-xl">
               <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-400 border border-indigo-500/20 shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="space-y-0.5">
-                <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold block">Location</span>
+                <span className="text-[10px] text-slate-300 uppercase tracking-wider font-semibold block">Location</span>
                 <span className="text-xs sm:text-sm font-medium text-white block">Kozhikode, Kerala, India</span>
               </div>
             </div>
