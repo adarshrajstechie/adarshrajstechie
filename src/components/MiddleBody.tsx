@@ -113,13 +113,13 @@ export default function MiddleBody() {
   ];
 
   const previousProjects = [
+    { name: "Damaru Gold & Diamonds", category: "Shopify E-Commerce", url: "https://www.damarugoldanddiamonds.com/" },
     { name: "Zag News Portal", category: "Digital Publishing", url: "https://zagnews.in/" },
     { name: "The City of Spices", category: "Culinary & Blog", url: "https://thecityofspices.com/" },
     { name: "Deityom Spiritual Portal", category: "Web Platform", url: "https://deityom.com/" },
     { name: "Kozhikode For Rent", category: "Real Estate Portal", url: "https://kozhikodeforrent.com/" },
     { name: "Omkaar Tourist Home", category: "Hospitality", url: "https://omkaartouristhome.com/" },
-    { name: "Arora Tourist Home", category: "Hospitality", url: "https://aroratouristhome.com/" },
-    { name: "Damaru Gold & Diamonds", category: "Shopify E-Commerce", url: "https://www.damarugoldanddiamonds.com/" }
+    { name: "Arora Tourist Home", category: "Hospitality", url: "https://aroratouristhome.com/" },  
   ];
 
   const categories = [
