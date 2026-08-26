@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import FloatingActions from "@/components/FloatingActions";
 import type { Metadata } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "/";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://adarshrajstechie.vercel.app";
 
 export const metadata: Metadata = {
   title: "Adarsh Raj S | Web Developer & Digital Marketer",
@@ -33,12 +33,21 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Adarsh Raj S Portfolio",
     locale: "en_US",
+    images: [
+      {
+        url: "https://adarshrajstechie.vercel.app/adarshrajs-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Adarsh Raj S Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Adarsh Raj S | Freelance Web Developer & Digital Marketer",
     description: "Building ultra-fast, high-converting Next.js & React web applications for global clients and businesses.",
     creator: "@adarshrajstechie",
+    images: ["https://adarshrajstechie.vercel.app/adarshrajs-logo.png"],
   },
   robots: {
     index: true,
@@ -86,7 +95,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Adarsh Raj S - Web Development & Digital Marketing Services",
-    image: "/og-image.jpg",
+    image: "https://adarshrajstechie.vercel.app/adarshrajs-logo.png",
     url: "/",
     telephone: "+918075551892",
     email: "adarshrajstechie@gmail.com",

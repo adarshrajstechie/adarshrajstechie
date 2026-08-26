@@ -269,22 +269,19 @@ export default function MiddleBody() {
               </div>
             </div>
 
-            {/* Profile Image Column */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="relative group w-full max-w-[280px] sm:max-w-xs lg:max-w-sm">
-                <div aria-hidden="true" className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-indigo-600 rounded-3xl blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300 transform-gpu" />
-                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl">
-                  <Image
-                    src="/adarsh_raj_s.jpeg"
-                    alt="Adarsh Raj S - Web Developer Profile"
-                    fill
-                    priority
-                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 384px"
-                    className="object-cover object-center transform-gpu transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              </div>
-            </div>
+{/* Profile Image Column */}
+<div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
+  <div className="relative w-full max-w-[320px] sm:max-w-md lg:max-w-lg aspect-square">
+    <Image
+      src="/adarshrajs-logo.png"
+      alt="Adarsh Raj S - Web Developer Profile"
+      fill
+      priority
+      sizes="(max-width: 640px) 320px, (max-width: 1024px) 448px, 512px"
+      className="object-contain object-center drop-shadow-[0_10px_25px_rgba(0,0,0,0.5)]"
+    />
+  </div>
+</div>
 
           </div>
         </div>
