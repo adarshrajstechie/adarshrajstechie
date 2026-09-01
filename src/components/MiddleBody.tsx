@@ -145,7 +145,7 @@ export default function MiddleBody() {
         "telephone": ["+918075551892", "+919496081054"],
         "sameAs": [
           "https://github.com/adarshrajstechie",
-          "https://www.linkedin.com/in/adarshrajstechie"
+          "https://www.linkedin.com/in/adarshrajs1999/"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -259,7 +259,7 @@ export default function MiddleBody() {
                   <GithubIcon className="w-4 h-4" /> GitHub
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/adarshrajstechie" 
+                  href="https://www.linkedin.com/in/adarshrajs1999" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-950 hover:bg-sky-900 border border-sky-500/40 text-sky-200 font-medium text-sm transition-all duration-200 shadow-md"
